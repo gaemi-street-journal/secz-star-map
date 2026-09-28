@@ -1142,7 +1142,7 @@ function legendHTML(t){
   const g=['f','p','l','q'].map(x=>`<span>${glyph(x,18)}${SNAME[x]}</span>`).join('');
   const tm=t===1?`<span>${WARN} 압력 · ✨ 기회</span>`:t>=2?'<span>▲▼ 지금 대비 · ◤ 바뀐 칸</span>':'';
   const tag=t===2?'<span><i class="rt br">SECZ도 공급</i> SECZ가 이 방식에도 토큰을 댄다</span>':t===3?'<span><i class="rt dom">대체 우세</i> 이 방식이 표준이 된다</span>':'';
-  return `<div class="lgrid"><div>${tm}</div><div>${g}</div><div><span style="color:var(--warn)">▢ 가장 붐비는 칸</span><span>기업명 색 <b style="color:var(--co);font-weight:500">협업</b> <b style="color:var(--mx);font-weight:500">복합</b> <b style="color:var(--cp);font-weight:500">경쟁</b></span></div><div>${tag}<span>— 상대 없음 또는 구조상 막힘 (마우스를 올리면 이유)</span></div></div>`;}
+  return `<div class="lgrid"><div>${tm}</div><div>${g}</div><div><span>기업명 색 <b style="color:var(--co);font-weight:500">협업</b> <b style="color:var(--mx);font-weight:500">복합</b> <b style="color:var(--cp);font-weight:500">경쟁</b></span></div><div>${tag}<span>— 상대 없음 또는 구조상 막힘 (마우스를 올리면 이유)</span></div></div>`;}
 function bindCells(){$$('#track .cell[data-k],#track .aln[data-k]').forEach(b=>b.onclick=e=>{e.stopPropagation();openCell(b.dataset.k);});}
 function setTime(t,instant){S.t=Math.max(0,Math.min(3,t));
   const tp=$$('#track .tpanel'); if(instant) tp.forEach(x=>x.style.transition='none');
