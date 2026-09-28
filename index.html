@@ -1131,14 +1131,14 @@ function cellC(A,r,t){const why=[];
     const k=r+v,rel=altRel(k,t),cm=cmpOf(k),ev=altEv(v,t);
     if(rel==='open'){why.push(`${lab} 길만 열림 — 이 단계에 들어온 상대 없음`);return '';}
     const nm=cm.length?cm.slice(0,3).map(([id])=>pname(id)).join(' · '):'—';
-    return `<button class="aln r-${rel}${t>=1&&rel!==altRel(k,0)?' chg3':''}" data-k="${k}" title="${esc(`${lab} · ${RELN[rel]}${ev?` · ${ev}`:''} · 상대 ${cm.length}곳`)}"><span class="mt">${lab}</span><span class="an">${nm}</span><span class="ev">${ev}</span><span class="rt">${RELN[rel]}</span></button>`;}).filter(Boolean);
+    return `<button class="aln r-${rel}${t>=1&&rel!==altRel(k,0)?' chg3':''}" data-k="${k}" title="${esc(`${lab} · ${RELN[rel]}${ev?` · ${ev}`:''} · 상대 ${cm.length}곳`)}"><span class="mt">${lab}</span><span class="an">${nm}</span><span class="ev">${ev}</span>${rel==='sub'?'':`<span class="rt">${RELN[rel]}</span>`}</button>`;}).filter(Boolean);
   if(!lines.length) return `<div class="cell na" title="${esc(why.join(' / ')||'—')}"><b>—</b></div>`;
   return `<div class="cell c3">${lines.join('')}</div>`;}
 function legendHTML(t){
   const g=['f','p','l','q'].map(x=>`<span>${glyph(x,18)}${SNAME[x]}</span>`).join('');
   const tm=t===1?`<span>${WARN} 압력 · ✨ 기회</span>`:t>=2?'<span>▲▼ 지금 대비 · ◤ 바뀐 칸</span>':'';
-  const tags=['sub'].concat(t===2?['br']:[],t===3?['dom']:[]).map(x=>`<i class="rt ${x}">${RELN[x]}</i>`).join(' ');
-  return `<div class="lgrid"><div>${tm}</div><div>${g}</div><div><span style="color:var(--warn)">▢ 가장 붐비는 칸</span></div><div><span>${tags}</span><span>— = 상대 없음·막힘(마우스로 이유)</span></div></div>`;}
+  const tag=t===2?'<span><i class="rt br">SECZ도 공급</i> SECZ가 이 방식에도 토큰을 댄다</span>':t===3?'<span><i class="rt dom">대체 우세</i> 이 방식이 표준이 된다</span>':'';
+  return `<div class="lgrid"><div>${tm}</div><div>${g}</div><div><span style="color:var(--warn)">▢ 가장 붐비는 칸</span></div><div>${tag}<span>— 상대 없음 또는 구조상 막힘 (마우스를 올리면 이유)</span></div></div>`;}
 function bindCells(){$$('#track .cell[data-k],#track .aln[data-k]').forEach(b=>b.onclick=e=>{e.stopPropagation();openCell(b.dataset.k);});}
 function setTime(t,instant){S.t=Math.max(0,Math.min(3,t));
   const tp=$$('#track .tpanel'); if(instant) tp.forEach(x=>x.style.transition='none');
