@@ -707,16 +707,16 @@ B:'배관 독식 세계: 트윈이 담보·유통·24시간 거래의 기본값�
 };
 // 매출 상방 11개
 const UP=[
- {n:'기존 운용사의 다음 펀드 + 펀드행정 고객의 토큰 전환',pr:3,sz:'미산정 · 현 연환산 약 $5,800만의 확장',line:'토큰화(건별) + 자산서비스(반복)',cells:['R2C1','R4C1','R2C3','R4C3','R5C5','R2C5'],sig:'자산서비스 고객의 토큰 클래스 추가 · 3Q 토큰화 ≥ $920만'},
- {n:'새 지역·새 자산군 발행 일감(KB·Socios·ARK·VARA)',pr:2.5,sz:'미산정 (건별·울퉁불퉁)',line:'토큰화(건별)',cells:['R2C9','R7C1','R2C5','R4C9'],sig:'KB 첫 기관 MMF · Socios 첫 구단'},
- {n:'스테이블코인 준비금 펀드(BRSRV)',pr:2,sz:'미산정 · SECZ 몫은 TA 요금 수준',line:'토큰화(유지·TA)',cells:['R2C1','R4C1'],sig:'BRSRV 잔액 · 첫 스테이블코인 발행사 연결'},
- {n:'Computershare 경유 발행사 토큰 기술료',pr:2,sz:'연 $30만~1,000만',line:'신규(기술료)',cells:['R3C6','R4C6'],sig:'첫 IST 발행사 이름'},
- {n:'NYSE 디지털 플랫폼 참여',pr:1.5,sz:'연 $100만~2,500만',line:'신규(TA·BD 참가)',cells:['R4C6','R8C6'],sig:'승인 TA 명단(~2027-03)'},
- {n:'자체 발행사 명부 관리(Pacific 포함)',pr:1,sz:'연 $400만~1,100만',line:'신규(명부)',cells:['R4C6'],sig:'외부 상장사 첫 토큰화 발표'},
- {n:'투자자문 보수(자체 펀드)',pr:1,sz:'연 $200만~800만',line:'신규(운용보수)',cells:['R1C3','R1C4'],sig:'HINC 잔액 · 두 번째 자체 펀드'},
- {n:'온체인 IPO 인수',pr:1,sz:'연 $100만~400만',line:'신규(인수)',cells:['R2C6'],sig:'첫 온체인 IPO'},
- {n:'역외 유통사에 발행사 토큰 공급',pr:1,sz:'미산정 (열리면 가장 큼)',line:'신규(발행·명부)',cells:['R7C8','R2C8'],sig:'11/3 의견 흐름 · 래퍼의 권리 구조 변경'},
- {n:'담보·DeFi 쓰임새',pr:0.5,sz:'연 $0~100만',line:'없음(과금 구조 부재)',cells:['R9C1','R9C4','R9C6'],sig:'담보 수수료 첫 공시'}
+ {n:'기존 운용사의 다음 펀드 + 펀드행정 고객의 토큰 전환',pr:3,line:'토큰화(건별) + 자산서비스(반복)',cells:['R2C1','R4C1','R2C3','R4C3','R5C5','R2C5'],sig:'자산서비스 고객의 토큰 클래스 추가 · 3Q 토큰화 ≥ $920만'},
+ {n:'새 지역·새 자산군 발행 일감(KB·Socios·ARK·VARA)',pr:2.5,line:'토큰화(건별)',cells:['R2C9','R7C1','R2C5','R4C9'],sig:'KB 첫 기관 MMF · Socios 첫 구단'},
+ {n:'스테이블코인 준비금 펀드(BRSRV)',pr:2,line:'토큰화(유지·TA)',cells:['R2C1','R4C1'],sig:'BRSRV 잔액 · 첫 스테이블코인 발행사 연결'},
+ {n:'Computershare 경유 발행사 토큰 기술료',pr:2,line:'신규(기술료)',cells:['R3C6','R4C6'],sig:'첫 IST 발행사 이름'},
+ {n:'NYSE 디지털 플랫폼 참여',pr:1.5,line:'신규(TA·BD 참가)',cells:['R4C6','R8C6'],sig:'승인 TA 명단(~2027-03)'},
+ {n:'자체 발행사 명부 관리(Pacific 포함)',pr:1,line:'신규(명부)',cells:['R4C6'],sig:'외부 상장사 첫 토큰화 발표'},
+ {n:'투자자문 보수(자체 펀드)',pr:1,line:'신규(운용보수)',cells:['R1C3','R1C4'],sig:'HINC 잔액 · 두 번째 자체 펀드'},
+ {n:'온체인 IPO 인수',pr:1,line:'신규(인수)',cells:['R2C6'],sig:'첫 온체인 IPO'},
+ {n:'역외 유통사에 발행사 토큰 공급',pr:1,line:'신규(발행·명부)',cells:['R7C8','R2C8'],sig:'11/3 의견 흐름 · 래퍼의 권리 구조 변경'},
+ {n:'담보·DeFi 쓰임새',pr:0.5,line:'없음(과금 구조 부재)',cells:['R9C1','R9C4','R9C6'],sig:'담보 수수료 첫 공시'}
 ];
 // 플레이어
 const P={
@@ -1202,7 +1202,7 @@ function openCell(k,keep){S.k=k;const r=k.slice(0,2),c=k.slice(2),t=S.t,row=ROWS
       return `<div class="subc r-${rel}" data-k="${ak}"><b>${lab}</b><i class="rt">${RELN[rel]}</i> ${ev?`<span style="color:var(--muted);font-size:12px">${ev}</span>`:''}<span class="go">→ 칸 열기</span><br>상대 · ${cm.length?cm.map(([id])=>pname(id)).join(' · '):'—'}<br>${t<=1?tx(SUBEV[v]?SUBEV[v][1]:''):relNote(rel)}</div>`;}).join('')}</div>`:'';
   const secChips=`<div class="sec"><h4>이 칸의 상대 · ${names.length}곳</h4>${names.length?`<div class="chips">${names.map(([id,rel])=>`<span class="chip" data-p="${id}"><i class="dot ${rel}"></i>${P[id].n}<small>${REL[rel]}</small></span>`).join('')}</div>`:'<p class="none">—</p>'}</div>`;
   const secEvt=`<div class="sec"><h4>이 시점에 움직이는 일 · ${evs.length}</h4>${evs.length?evs.map(e=>`<details class="evd"><summary><span class="d">${e.d}</span>${e.n}</summary><div class="g">좋은 쪽 · ${e.good}</div><div class="bd">나쁜 쪽 · ${e.bad}</div><div class="s">관측 · ${e.sig}</div></details>`).join(''):'<p class="none">—</p>'}</div>`;
-  const secUp=ups.length?`<div class="sec"><h4>매출 상방</h4>${ups.map(u=>`<div class="upc"><b>${u.n}</b><br>늘어나는 줄 · ${u.line}<br>크기(3년 내 · 가정) · ${u.sz}<br>가능성 · ${u.pr>=3?'상':u.pr>=2.5?'중상':u.pr>=2?'중':u.pr>=1.5?'하~중':'하'} · 첫 신호 · ${u.sig}</div>`).join('')}</div>`:'';
+  const secUp=ups.length?`<div class="sec"><h4>매출 상방</h4>${ups.map(u=>`<div class="upc"><b>${u.n}</b><br>늘어나는 줄 · ${u.line}<br>가능성 · ${u.pr>=3?'상':u.pr>=2.5?'중상':u.pr>=2?'중':u.pr>=1.5?'하~중':'하'} · 첫 신호 · ${u.sig}</div>`).join('')}</div>`:'';
   // 순서: 머리 → 이 칸 → (트윈·래퍼 칸의 관계 / 붐비는 칸의 제3자형) → 상대 → 사건 → 제3자형 → 상방 → 배경
   h+=secRel+(hot?secAlt:'')+secChips+secEvt+(hot?'':secAlt)+secUp;
   h+=`<details class="bg"><summary>배경 — 같은 줄 흐름 · 행·열 설명</summary><div class="sec"><h4 class="k">같은 줄 전체 · ${TN[t]}</h4><p>${tx(COLT[c][t])}</p></div><div class="sec"><h4 class="k">행 · 열 설명</h4><p style="font-size:13.5px">${row.d}<br>${tx(COLS[cIdx(c)].d)}</p></div></details>`;
