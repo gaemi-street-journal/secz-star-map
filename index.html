@@ -17,7 +17,7 @@
   --ink-900:#061423; --ink-850:#08192B; --ink-800:#0B2138; --ink-750:#0E2842; --ink-700:#16456B;
   --rule:#1B3A5A; --rule-soft:#102B45;
   --paper:#E6EDF5; --paper-dim:#B7C7D8; --muted:#7E97AE;
-  --legacy:#E0A33E; --token:#4FD1E8; --token-lt:#8FE6F4; --warn:#F2857B; --mix:#B9A2F0;
+  --legacy:#E0A33E; --co:#5CFF8F; --mx:#FFE14D; --cp:#FF5C5C; --token:#4FD1E8; --token-lt:#8FE6F4; --warn:#F2857B; --mix:#B9A2F0;
   --s:1;
 }
 *{box-sizing:border-box;}
@@ -181,8 +181,12 @@ button{font-family:inherit;color:inherit;}
 .cell .mid{min-width:0;transition:padding .2s;}
 .cell .nms{font-size:13px;line-height:1.35;color:var(--paper);display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;}
 .cell.s-l .nms,.cell.s-n .nms,.cell.s-q .nms{color:var(--muted);}
-.cell .nms i{display:inline-block;width:0;height:7px;border-radius:50%;margin:0 0 1px 0;vertical-align:middle;transition:width .2s,margin .2s;}
+.cell .nms i{display:none;width:0;height:7px;border-radius:50%;margin:0 0 1px 0;vertical-align:middle;transition:width .2s,margin .2s;}
 .cell:hover .nms i{width:7px;margin-right:4px;}
+/* 기업명 색 = 관계: 협업 녹색 · 복합 노랑 · 경쟁 빨강 */
+.nms .it.co,.nm-co{color:var(--co);} .nms .it.mx,.nm-mx{color:var(--mx);} .nms .it.cp,.nm-cp{color:var(--cp);}
+.chip.n-co{color:var(--co);} .chip.n-mx{color:var(--mx);} .chip.n-cp{color:var(--cp);}
+.chip.pc.n-co .l1 b{color:var(--co);} .chip.pc.n-mx .l1 b{color:var(--mx);} .chip.pc.n-cp .l1 b{color:var(--cp);}
 .cell .nms .it{margin-right:10px;}
 .cell .nms .it.sz{font-weight:500;}
 .cell .nms .it:not(:last-child)::after{content:"·";margin-left:10px;color:var(--muted);}
@@ -192,7 +196,7 @@ button{font-family:inherit;color:inherit;}
 .cell:hover .sig{opacity:1;}
 .cell:hover .mid{padding-right:30px;}
 .dot{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:5px;vertical-align:middle;}
-.co i,.dot.co{background:#C9D6E3;} .cp i,.dot.cp{background:var(--warn);} .mx i,.dot.mx{background:linear-gradient(90deg,#C9D6E3 50%,var(--warn) 50%);}
+.co i,.dot.co{background:var(--co);} .cp i,.dot.cp{background:var(--cp);} .mx i,.dot.mx{background:var(--mx);}
 .chg{position:absolute;right:-6px;bottom:-4px;font-family:"IBM Plex Mono",monospace;font-size:10px;line-height:1;padding:2px 3px;
   color:var(--paper);background:var(--ink-900);border:1px solid rgba(183,199,216,.5);border-radius:6px;}
 .pin{position:absolute;right:-7px;bottom:-5px;font-size:12px;line-height:1;}
@@ -243,7 +247,7 @@ details.bg[open] summary{color:var(--paper-dim);}
   padding:2px 6px;text-align:left;font-size:13px;color:var(--paper);cursor:pointer;font-family:inherit;position:relative;}
 .aln:hover{background:rgba(230,237,245,.07);}
 .aln.sel{outline:1px solid var(--paper);}
-.aln .mt{font-size:12px;color:var(--legacy);}
+.aln .mt{font-size:12px;color:var(--muted);}
 .aln .an{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0;}
 .aln .ev{font-size:11.5px;color:var(--muted);white-space:nowrap;}
 .rt{font-size:11.5px;padding:1px 6px;border:1px solid;white-space:nowrap;font-style:normal;font-weight:400;}
@@ -1130,7 +1134,7 @@ function cellC(A,r,t){const why=[];
     if(typeof v!=='string'){why.push(`${lab} ${v.t==='x'?'막힘':'따로 안 셈'} — ${v.why}`);return '';}
     const k=r+v,rel=altRel(k,t),cm=cmpOf(k),ev=altEv(v,t);
     if(rel==='open'){why.push(`${lab} 길만 열림 — 이 단계에 들어온 상대 없음`);return '';}
-    const nm=cm.length?cm.slice(0,3).map(([id])=>pname(id)).join(' · '):'—';
+    const nm=cm.length?cm.slice(0,3).map(([id,rl])=>`<span class="nm-${rl}">${pname(id)}</span>`).join(' · '):'—';
     return `<button class="aln r-${rel}${t>=1&&rel!==altRel(k,0)?' chg3':''}" data-k="${k}" title="${esc(`${lab} · ${RELN[rel]}${ev?` · ${ev}`:''} · 상대 ${cm.length}곳`)}"><span class="mt">${lab}</span><span class="an">${nm}</span><span class="ev">${ev}</span>${rel==='sub'?'':`<span class="rt">${RELN[rel]}</span>`}</button>`;}).filter(Boolean);
   if(!lines.length) return `<div class="cell na" title="${esc(why.join(' / ')||'—')}"><b>—</b></div>`;
   return `<div class="cell c3">${lines.join('')}</div>`;}
@@ -1138,7 +1142,7 @@ function legendHTML(t){
   const g=['f','p','l','q'].map(x=>`<span>${glyph(x,18)}${SNAME[x]}</span>`).join('');
   const tm=t===1?`<span>${WARN} 압력 · ✨ 기회</span>`:t>=2?'<span>▲▼ 지금 대비 · ◤ 바뀐 칸</span>':'';
   const tag=t===2?'<span><i class="rt br">SECZ도 공급</i> SECZ가 이 방식에도 토큰을 댄다</span>':t===3?'<span><i class="rt dom">대체 우세</i> 이 방식이 표준이 된다</span>':'';
-  return `<div class="lgrid"><div>${tm}</div><div>${g}</div><div><span style="color:var(--warn)">▢ 가장 붐비는 칸</span></div><div>${tag}<span>— 상대 없음 또는 구조상 막힘 (마우스를 올리면 이유)</span></div></div>`;}
+  return `<div class="lgrid"><div>${tm}</div><div>${g}</div><div><span style="color:var(--warn)">▢ 가장 붐비는 칸</span><span>기업명 색 <b style="color:var(--co);font-weight:500">협업</b> <b style="color:var(--mx);font-weight:500">복합</b> <b style="color:var(--cp);font-weight:500">경쟁</b></span></div><div>${tag}<span>— 상대 없음 또는 구조상 막힘 (마우스를 올리면 이유)</span></div></div>`;}
 function bindCells(){$$('#track .cell[data-k],#track .aln[data-k]').forEach(b=>b.onclick=e=>{e.stopPropagation();openCell(b.dataset.k);});}
 function setTime(t,instant){S.t=Math.max(0,Math.min(3,t));
   const tp=$$('#track .tpanel'); if(instant) tp.forEach(x=>x.style.transition='none');
@@ -1189,7 +1193,7 @@ function openCell(k,keep){S.k=k;const r=k.slice(0,2),c=k.slice(2),t=S.t,row=ROWS
   // 머리 카드 — SECZ 칸은 상태, 트윈·래퍼 칸은 관계(대체·증거·상대)
   let h;
   if(isAlt){const rel=altRel(k,t),ev=altEv(c,t),cm=cmpOf(k);
-    h=`<div class="stline alt r-${rel}"><i class="rt">${RELN[rel]}</i><div><div class="big">${cm.length?cm.map(([id])=>pname(id)).join(' · '):'—'}</div><div style="font-size:13px;color:var(--muted)">${AO.A.a}의 ${AO.role==='twin'?'트윈':'래퍼'} · ${TN[t]}</div></div>
+    h=`<div class="stline alt r-${rel}"><i class="rt">${RELN[rel]}</i><div><div class="big">${cm.length?cm.map(([id,rl])=>`<span class="nm-${rl}">${pname(id)}</span>`).join(' · '):'—'}</div><div style="font-size:13px;color:var(--muted)">${AO.A.a}의 ${AO.role==='twin'?'트윈':'래퍼'} · ${TN[t]}</div></div>
       <div class="from">${ev?`${ev}<br>`:''}SECZ · ${SNAME[s]}${note?`<span class="nr">${note}</span>`:''}</div></div>`;}
   else h=`<div class="stline">${glyph(s,34)}<div><div class="big">${SNAME[s]}</div><div style="font-size:13px;color:var(--muted)">SECZ · ${TN[t]}</div></div>
      <div class="from">${t===0?'':`지금 ${SNAME[s0]}<br>${RANK[s]>RANK[s0]?'▲ 올라감':RANK[s]<RANK[s0]?'▼ 내려감':'= 변화 없음'}`}${hot?'<br><span style="color:var(--warn)">가장 붐비는 칸</span>':''}${note?`<span class="nr">${note}</span>`:''}</div></div>`;
@@ -1199,8 +1203,8 @@ function openCell(k,keep){S.k=k;const r=k.slice(0,2),c=k.slice(2),t=S.t,row=ROWS
   const secAlt=(AO&&AO.role==='iss'&&!AO.A.span)?`<div class="sec"><h4>제3자형 경쟁사</h4>${ALTM.map(([m,lab])=>{const v=AO.A.m[m];
       if(typeof v!=='string') return `<div class="subc off"><b>${lab} · ${v.t==='x'?'막힘':'따로 안 셈'}</b><br>${tx(v.why)}</div>`;
       const ak=r+v,rel=altRel(ak,t),cm=cmpOf(ak),ev=altEv(v,t);
-      return `<div class="subc r-${rel}" data-k="${ak}"><b>${lab}</b><i class="rt">${RELN[rel]}</i> ${ev?`<span style="color:var(--muted);font-size:12px">${ev}</span>`:''}<span class="go">→ 칸 열기</span><br>상대 · ${cm.length?cm.map(([id])=>pname(id)).join(' · '):'—'}<br>${t<=1?tx(SUBEV[v]?SUBEV[v][1]:''):relNote(rel)}</div>`;}).join('')}</div>`:'';
-  const secChips=`<div class="sec"><h4>이 칸의 상대 · ${names.length}곳</h4>${names.length?`<div class="chips">${names.map(([id,rel])=>`<span class="chip" data-p="${id}"><i class="dot ${rel}"></i>${P[id].n}<small>${REL[rel]}</small></span>`).join('')}</div>`:'<p class="none">—</p>'}</div>`;
+      return `<div class="subc r-${rel}" data-k="${ak}"><b>${lab}</b><i class="rt">${RELN[rel]}</i> ${ev?`<span style="color:var(--muted);font-size:12px">${ev}</span>`:''}<span class="go">→ 칸 열기</span><br>상대 · ${cm.length?cm.map(([id,rl])=>`<span class="nm-${rl}">${pname(id)}</span>`).join(' · '):'—'}<br>${t<=1?tx(SUBEV[v]?SUBEV[v][1]:''):relNote(rel)}</div>`;}).join('')}</div>`:'';
+  const secChips=`<div class="sec"><h4>이 칸의 상대 · ${names.length}곳</h4>${names.length?`<div class="chips">${names.map(([id,rel])=>`<span class="chip n-${rel}" data-p="${id}"><i class="dot ${rel}"></i>${P[id].n}<small>${REL[rel]}</small></span>`).join('')}</div>`:'<p class="none">—</p>'}</div>`;
   const secEvt=`<div class="sec"><h4>이 시점에 움직이는 일 · ${evs.length}</h4>${evs.length?evs.map(e=>`<details class="evd"><summary><span class="d">${e.d}</span>${e.n}</summary><div class="g">좋은 쪽 · ${e.good}</div><div class="bd">나쁜 쪽 · ${e.bad}</div><div class="s">관측 · ${e.sig}</div></details>`).join(''):'<p class="none">—</p>'}</div>`;
   const secUp=ups.length?`<div class="sec"><h4>매출 상방</h4>${ups.map(u=>`<div class="upc"><b>${u.n}</b><br>늘어나는 줄 · ${u.line}<br>가능성 · ${u.pr>=3?'상':u.pr>=2.5?'중상':u.pr>=2?'중':u.pr>=1.5?'하~중':'하'} · 첫 신호 · ${u.sig}</div>`).join('')}</div>`:'';
   // 순서: 머리 → 이 칸 → (트윈·래퍼 칸의 관계 / 붐비는 칸의 제3자형) → 상대 → 사건 → 제3자형 → 상방 → 배경
@@ -1280,7 +1284,7 @@ function renderPlayers(){const groups=['공급','명부·배관','거래·유통
   $('#pgroups').innerHTML=BAND.map(B=>{const ids=Object.keys(P).filter(id=>prof[id].band===B.id);
     const body=groups.map(g=>{const gi=ids.filter(id=>P[id].g===g).sort((a,b)=>prof[b].cs.length-prof[a].cs.length);if(!gi.length)return '';
       return `<div class="pgrow"><span class="pgl">${g}</span><div class="pgc">`+gi.map(id=>{const pf=prof[id],p=P[id],other=Object.entries(pf.cnt).filter(([b,n])=>b!==B.id&&n).map(([b,n])=>`+${BNAME[b]} ${n}`).join(' · ');
-        return `<span class="chip pc" data-p="${id}" title="${esc(`${p.n} · ${REL[p.r]} · 서 있는 칸 ${pf.cs.length}`)}"><span class="l1"><i class="dot ${p.r}"></i><b>${p.n}</b><em>${pf.cs.length}</em></span><span class="l2">${ticks(pf.st)}${other?`<small>${other}</small>`:''}</span></span>`;}).join('')+'</div></div>';}).join('');
+        return `<span class="chip pc n-${p.r}" data-p="${id}" title="${esc(`${p.n} · ${REL[p.r]} · 서 있는 칸 ${pf.cs.length}`)}"><span class="l1"><i class="dot ${p.r}"></i><b>${p.n}</b><em>${pf.cs.length}</em></span><span class="l2">${ticks(pf.st)}${other?`<small>${other}</small>`:''}</span></span>`;}).join('')+'</div></div>';}).join('');
     return `<div class="band b-${B.id}"><div class="bh"><b>${B.n}</b><span>${ids.length}곳</span></div><div class="bb">${body}</div></div>`;}).join('');
   $$('#pgroups .chip').forEach(c=>c.onclick=()=>openPlayer(c.dataset.p));}
 
