@@ -1232,11 +1232,11 @@ function openPlayer(id){const p=P[id],rel=p.r,pf=profileOf(id),cs=pf.cs,tv={'상
   const ok=v=>v&&String(v).trim()!=='—';
   const fut=[['2027',p.y27],['2028+',p.y28],['동료가 되는 조건',p.peer],['적이 굳는 조건',p.foe],['관측 지표',p.sig]].filter(([,v])=>ok(v));
   const noflip=fut.length<=1;
-  $('#cFront').innerHTML=`<span class="rel"><i class="dot ${rel}"></i>${REL[rel]}</span> <span class="grp" style="margin-left:10px">${p.g}</span>${live?'<span class="grp live">발굴 후보</span>':''}<h3>${p.n}</h3><div class="grp">2026-09 기준</div>
+  $('#cFront').innerHTML=`<span class="rel"><i class="dot ${rel}"></i>${REL[rel]}</span> <span class="grp" style="margin-left:10px">${p.g}</span>${live?'<span class="grp live">발굴 후보</span>':''}<h3 class="nm-${rel}">${p.n}</h3><div class="grp">2026-09 기준</div>
     <div class="kv"><b>하는 일</b><span>${tx(p.now)}</span><b>서 있는 칸 · ${cs.length}</b><div>${where}</div>
     ${noflip?`<b>동료 전환</b><span>${turn}</span>`:''}</div><div class="fliphint">${noflip?'앞으로의 추정 기록 없음':'카드를 누르면 뒤집혀 미래가 보인다 ↻'}</div>`;
   const tl=[['지금',p.now],['2027',p.y27],['2028+ (갈림길 전)',p.y28]].filter(([,v])=>ok(v));
-  $('#cBack').innerHTML=`<div class="grp">앞으로 · 추정</div><h3 style="font-size:32px">${p.n}</h3>
+  $('#cBack').innerHTML=`<div class="grp">앞으로 · 추정</div><h3 class="nm-${rel}" style="font-size:32px">${p.n}</h3>
     <div class="tl">${tl.map(([k,v],i)=>`<div class="${i===0?'now':''}"><b>${k}</b><span>${tx(v)}</span></div>`).join('')}</div>
     <div class="pf">${ok(p.peer)?`<div class="peer"><b>동료 쪽으로</b><span>${tx(p.peer)}</span></div>`:'<div></div>'}<div class="gauge"><b>동료 전환</b><span>${turn}</span>${ok(p.when)?`<small>${p.when}</small>`:''}</div>${ok(p.foe)?`<div class="foe"><b>적 쪽으로</b><span>${tx(p.foe)}</span></div>`:'<div></div>'}</div>
     ${ok(p.sig)?`<div class="sigs"><b>관측 지표</b>${String(p.sig).split(/\s·\s/).map(x=>`<span>${tx(x)}</span>`).join('')}</div>`:''}<div class="fliphint">앞면으로 ↻</div>`;
