@@ -8,7 +8,7 @@
 <meta property="og:type" content="website">
 <meta property="og:title" content="SECZ 경쟁·협업 별 지도">
 <meta property="og:description" content="토큰화 증권의 생애주기 9단계에서 SECZ(Securitize)가 서 있는 자리와 경쟁·협업 구도 — The Gaemi Street Journal">
-<meta name="description" content="SECZ 경쟁·협업 지도를 생애주기 9단계(만들기·관리하기·돌리기) 별로 여는 인터랙티브 대시보드. 별을 누르면 상품 7종마다 SECZ + 협업사·발행사 주도형 경쟁사·제3자형 경쟁사(DTCC 트윈·역외 래퍼) 표가 열리고, 시간 슬라이드(지금·2027 초·2028 A·2028 B)로 칸의 상태와 내용이 바뀐다. 칸·회사를 누르면 상세와 카드가 열린다. 매수·매도 신호 아님.">
+<meta name="description" content="SECZ 경쟁·협업 지도를 생애주기 9단계(만들기·관리하기·돌리기) 별로 여는 인터랙티브 대시보드. 별을 누르면 상품 7종마다 SECZ + 협업사·경쟁사 두 열 표가 열리고, 시간 슬라이드(지금·2027 초·2028 A·2028 B)로 칸의 상태와 내용이 바뀐다. 칸·회사를 누르면 상세와 카드가 열린다. 매수·매도 신호 아님.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Noto+Sans+KR:wght@300;400;500;700&family=Noto+Serif+KR:wght@600;700;900&display=swap">
@@ -153,7 +153,7 @@ button{font-family:inherit;color:inherit;}
 .tsum .when small{display:block;font-family:"Noto Sans KR",sans-serif;font-size:12px;font-weight:400;color:var(--muted);}
 .tsum .when{font-family:"Noto Serif KR",serif;font-weight:700;color:#fff;white-space:nowrap;font-size:16px;}
 
-.tbl{display:grid;grid-template-columns:196px repeat(3,1fr);gap:5px;}
+.tbl{display:grid;grid-template-columns:196px 1fr 1.35fr;gap:5px;}
 .th{padding:6px 12px 7px;border-top:2px solid rgba(183,199,216,.4);background:rgba(8,25,43,.7);}
 .th.alt{border-top-color:var(--legacy);}
 .th b{font-size:15.5px;display:block;}
@@ -215,7 +215,7 @@ button{font-family:inherit;color:inherit;}
 .world .side{font-size:13px;color:var(--paper);border:1px solid rgba(183,199,216,.55);padding:1px 9px;white-space:nowrap;}
 .world .wsig{grid-column:2/4;font-size:13px;color:var(--muted);}
 /* 열 아래 범례 */
-.lgrid{display:grid;grid-template-columns:196px repeat(3,1fr);gap:5px;margin-top:5px;font-size:13px;color:var(--muted);}
+.lgrid{display:grid;grid-template-columns:196px 1fr 1.35fr;gap:5px;margin-top:5px;font-size:13px;color:var(--muted);}
 .lgrid>div{display:flex;flex-wrap:wrap;gap:4px 12px;align-items:center;padding:0 6px;}
 .lgrid span{display:inline-flex;align-items:center;gap:4px;}
 .sym{display:inline-block;vertical-align:-1px;}
@@ -223,7 +223,7 @@ button{font-family:inherit;color:inherit;}
 /* 상세 창이 열리면 표를 왼쪽으로 좁힌다 */
 #s-stage .viewport{transition:margin-right .5s cubic-bezier(.2,.7,.2,1);}
 #s-stage.pnl .viewport{margin-right:550px;}
-#s-stage.pnl .tbl,#s-stage.pnl .lgrid{grid-template-columns:150px repeat(3,1fr);}
+#s-stage.pnl .tbl,#s-stage.pnl .lgrid{grid-template-columns:150px 1fr 1.35fr;}
 #s-stage.pnl .th span,#s-stage.pnl .aln .ev,#s-stage.pnl .world .wsig{display:none;}
 /* 상세 창 배경 접힘 */
 .stline.alt{border-left:3px solid var(--legacy);} .stline.alt .rt{font-size:13px;padding:3px 9px;}
@@ -376,7 +376,7 @@ details.bg[open] summary{color:var(--paper-dim);}
 .tk i,.pc .tk i{width:6px;height:9px;border-radius:0;background:var(--rule-soft);display:block;}
 /* 카드 미니 지도 */
 .mini{display:grid;gap:2px;font-size:12.5px;}
-.mini .mr{display:grid;grid-template-columns:150px repeat(3,1fr);gap:4px;align-items:center;min-height:19px;}
+.mini .mr{display:grid;grid-template-columns:150px repeat(2,1fr);gap:4px;align-items:center;min-height:19px;}
 .mini .mr.e{min-height:16px;}
 .mini .mr.e{opacity:.3;}
 .mini .mh span{font-size:12px;color:var(--muted);}
@@ -502,7 +502,7 @@ details.bg[open] summary{color:var(--paper-dim);}
   <div class="sgroups rv" style="--i:3"><div>만들기</div><div>관리하기</div><div>돌리기</div></div>
   <div class="stars" id="stars"></div>
   <div class="mainfoot rv" style="--i:6">
-    <button class="btn" data-go="guide">읽는 법 — 토큰 3종·세 조건·기호 <span class="k">G</span></button>
+    <button class="btn" data-go="guide">읽는 법 — 표·토큰 유형·기호 <span class="k">G</span></button>
     <button class="btn" data-go="all">전체 지도 <span class="k">A</span></button>
     <button class="btn" data-go="players">플레이어 카드 <span class="k">P</span></button>
     <span class="disc">구조 분석이며 매수·매도 신호가 아닙니다</span>
@@ -546,31 +546,23 @@ details.bg[open] summary{color:var(--paper-dim);}
     <div><div class="eyebrow">플레이어</div><h2 style="margin-top:6px">누가 어디에 서 있나 — 이름을 누르면 카드가 열린다</h2></div>
   </div>
   <div class="pgroups" id="pgroups"></div>
-  <div class="legend" style="margin-top:10px"><span><i class="dot co"></i>협업 <i class="dot cp" style="margin-left:6px"></i>경쟁 <i class="dot mx" style="margin-left:6px"></i>복합 = 회사 전체 관계</span><span><span class="tk"><i style="background:#C9D6E3"></i><i style="background:var(--warn)"></i><i style="background:var(--legacy)"></i><i></i></span> 눈금 = 서 있는 단계(만들기 → 돌리기, 9칸) · 색 = 그 단계의 자리(협업 · 발행사 주도형 · 제3자형)</span><span>숫자 = 서 있는 칸 수</span></div>
+  <div class="legend" style="margin-top:10px"><span><i class="dot co"></i>협업 <i class="dot cp" style="margin-left:6px"></i>경쟁 <i class="dot mx" style="margin-left:6px"></i>복합 = 회사 전체 관계</span><span><span class="tk"><i style="background:#C9D6E3"></i><i style="background:var(--warn)"></i><i style="background:var(--legacy)"></i><i></i></span> 눈금 = 서 있는 단계(만들기 → 돌리기, 9칸) · 색 = 그 단계의 자리(협업 · 경쟁)</span><span>숫자 = 서 있는 칸 수</span></div>
 </section>
 
 <!-- 읽는 법 -->
 <section class="scr" id="s-guide">
   <div class="sthead" style="grid-template-columns:64px 1fr">
     <button class="back" data-go="main">◂</button>
-    <div><div class="eyebrow">읽는 법</div><h2 style="margin-top:6px">토큰은 세 가지 방식으로 만들어지고, 모든 상품이 셋 다 되는 건 아니다</h2></div>
+    <div><div class="eyebrow">읽는 법</div><h2 style="margin-top:6px">표는 두 열 — SECZ + 협업사 · 경쟁사. 토큰 유형은 회사마다 카드에 적었다</h2></div>
   </div>
   <div class="gcols">
-    <div class="gbox"><h4>토큰 종류 3가지 — 발행사 주도형 · 제3자형(트윈·래퍼)</h4>
-      <div class="mdl"><b>발행사 주도형</b><span>발행사가 직접(또는 대리인을 시켜) 토큰을 만든다. 토큰이 곧 명부 기재다. 의결권·배당이 원래 증권과 같다. SECZ·Computershare·Superstate 방식.</span></div>
-      <div class="mdl alt"><b>제3자형 ① 트윈 (수탁형)</b><span>제3자가 증권을 맡아 두고 맡긴 증서(청구권)를 토큰으로 만든다. 금은방에 금을 맡기고 보관증을 거래하는 것과 같다. 발행사 동의가 필요 없다. DTCC 방식.</span></div>
-      <div class="mdl alt"><b>제3자형 ② 래퍼 (합성형)</b><span>역외 법인이 감싸거나 가격만 따라가는 별도 증권을 판다. 미국인에게 팔 수 없다. Robinhood·xStocks·Ondo GM.</span></div>
-      <p style="margin-top:8px">분류는 SEC 직원 성명(2026-01-28)을 따랐다. 새 이전대리인 보고서 양식(TA-2)도 같은 분류로 건수를 받는다.</p>
+    <div class="gbox"><h4>토큰 유형 3가지 — 플레이어 카드의 「토큰 유형」 줄</h4>
+      <div class="mdl"><b>발행사 주도형</b><span>발행사(펀드는 운용사)가 직접, 또는 대리인을 시켜 공식 명부와 연결된 토큰을 만든다. 권리가 원래 증권과 같다. SECZ·Computershare·Superstate·BlackRock BUIDL.</span></div>
+      <div class="mdl alt"><b>수탁형</b><span>제3자가 실제 증권을 맡아 두고 그것을 근거로 토큰을 만든다. 발행사 동의가 필요 없다. DTCC 트윈(보관 기관이 직접 만들어 원래 증권과 오갈 수 있음)·Ondo 주식 토큰·Citi 예탁증서.</span></div>
+      <div class="mdl alt"><b>합성형</b><span>원래 증권의 가격만 따라가는 별도 증권이다. Robinhood 역외 주식 토큰(채무증권).</span></div>
+      <p style="margin-top:8px">같은 회사도 상품마다 방식이 다를 수 있다. 예: Ondo는 국채에서는 자기 토큰 상품을 내고, 주식에서는 원주를 맡겨 두고 토큰을 낸다. 그래서 표는 방식으로 나누지 않고 협업·경쟁으로만 나눴다.</p>
     </div>
     <div class="gcol">
-    <div class="gbox"><h4>세 조건 (제3자형 칸의 막힘 ①②③)</h4>
-      <p>어떤 상품이 어떤 토큰 종류로 만들어질 수 있는지는 자산군 이름이 아니라 밑에 깔린 증권의 상태가 정한다.</p>
-      <ul><li><b>①</b> 발행사·운용사 동의 없이 넘길 수 있나 — 막히면 트윈도 래퍼도 안 된다</li>
-      <li><b>②</b> DTC에 예탁돼 있나(증권번호) — 막히면 트윈이 안 된다</li>
-      <li><b>③</b> 매일 가격이 나오고 헤지가 되나 — 막히면 합성이 안 된다</li></ul>
-      <div class="row"><span class="gates"><i class="o">✓</i><i class="h">△</i><i class="x">✕</i></span> 통과 · 부분 · 막힘</div>
-      <p>사모펀드·벤처는 셋 다 막혀 발행사 주도가 사실상 강제된다. 하이일드·CLO는 ①②를 통과해 트윈이 구조상 가능하다.</p>
-    </div>
     <div class="limits"><b>이 지도의 한계</b>
     <p>"미확인" 칸은 없다는 뜻이 아니라 공개 자료로 확인하지 못한 칸이다. 매출은 칸별로 공시되지 않아 ●◐ 구분은 공시된 두 매출 줄과 상품 규모를 짜 맞춘 추정이다. 같은 "협업"이라도 BlackRock(수년·수십억 달러)과 구속력 없는 MOU는 무게가 다르다. 2027·2028 칸과 전환 가능성은 전부 주관 추정이다.</p></div>
     </div>
@@ -904,6 +896,48 @@ const TIMEINFO=[
  {k:'2028+ B',s:'배관 독식 · SECZ 불리',d:'트윈이 담보·유통·24시간 거래의 기본값이 되는 세계. 발행사 주도 주식 칸은 소수용으로 줄고, SECZ에게는 펀드·비상장 칸이 남는다. 단, 사모 판매 배관에는 DTCC도 들어온다(9/28 iCapital 지분 투자).'}
 ];
 
+// 플레이어 카드 「토큰 유형」 한 줄 (2026-09-29 · 표를 두 열로 줄이며 방식 구분은 카드로 옮김)
+// 발행사 주도형 = 발행사(펀드는 운용사)가 직접·대리인을 시켜 공식 명부와 연결된 토큰 · 수탁형 = 제3자가 실제 증권을 맡아 두고 만든 토큰 · 합성형 = 가격만 따라가는 별도 증권
+const TT={
+ blackrock:'발행사 주도형 — BUIDL·BRSRV·BSTBL은 펀드 지분이 곧 토큰(네이티브 토큰 펀드)',
+ vaneck:'발행사 주도형 — VBILL(네이티브 토큰 펀드)',
+ apollo:'발행사 주도형 — ACRED(토큰 펀드)',
+ hamilton:'발행사 주도형 — 신용펀드·사모펀드 피더(토큰 펀드)',
+ kkr:'발행사 주도형 — 헬스케어 성장 II 피더(토큰 펀드)',
+ neuberger:'해당 없음 — HINC 하위자문(토큰은 Securitize 자사 펀드)',
+ ark:'발행사 주도형 — ARKVX 온체인 발행',
+ socios:'발행사 주도형 — 구단 지분 토큰(발행 예정)',
+ currenc:'발행사 주도형 — 상장사가 직접 자기 주식 토큰화(CURR)',
+ cantor:'발행사 주도형 — 온체인 IPO·유상증자',
+ dtcc:'수탁형 — 트윈(DTC가 보관한 증권을 토큰으로 옮김 · 보관 기관이 직접 만들어 원래 증권과 오갈 수 있음)',
+ computershare:'발행사 주도형 — IST(발행사 후원 토큰 · 공식 명부 연결)',
+ tzero:'발행사 주도형 — 자체 브로커딜러·이전대리인·대체거래소로 발행',
+ equiniti:'발행사 주도형 — IST(공식 주주명부 연결)',
+ bny:'해당 없음 — 디지털 이전대리인·수탁 서비스(BSTBL 명부)',
+ continental:'해당 없음 — 전통 이전대리인',
+ broadridge:'해당 없음 — 의결권 전달(모든 방식 지원)',
+ superstate:'발행사 주도형 — 상장주식 직접 토큰화',
+ vertalo:'발행사 주도형 — 등록 이전대리인 기반 토큰화',
+ nyse:'해당 없음 — 거래 플랫폼(규제 승인 대기)',
+ blockchaincom:'해당 없음 — 유통 창구(역외에선 Ondo 토큰 판매)',
+ nasdaq:'트윈 기반 거래 — 자체 토큰(2027 2분기 예정)의 방식은 미확정',
+ robinhood:'합성형 — 역외 주식 토큰(회사 공시상 채무증권)',
+ kraken:'역외 래퍼 — xStocks(Backed 발행 · 미국인 판매 불가)',
+ coinbase:'미확인 — Base 위 토큰화 주식 유통(구조는 공개 자료로 확인 못 함)',
+ gemini:'역외 래퍼 — EU에서 Dinari 발행 토큰 유통',
+ coalition:'발행사 주도형 — 발행사 후원 토큰(IST) 표준',
+ kb:'해당 없음 — 유통 파트너(검토 단계)',
+ jump:'해당 없음 — 거래 유동성(Solana AMM)',
+ ondo:'상품마다 다름 — 국채: 자기 토큰 상품(USDY·OUSG) · 주식: 수탁형(원주를 맡겨 두고 발행) + DTC 트윈 기반 토큰',
+ circle:'발행사 주도형 — 자체 역외 토큰 MMF(USYC)',
+ figure:'발행사 주도형 — 자체 체인에서 대출 자산 토큰화',
+ franklin:'발행사 주도형 — 자체 토큰 펀드 BENJI(자체 온체인 명부)',
+ plume:'해당 없음 — 실물자산 토큰화 체인·프로토콜',
+ citi:'수탁형 — 토큰화 예탁증서(은행이 주식을 보관하고 발행)',
+ defi:'해당 없음 — 담보 대출 프로토콜',
+ ethena:'해당 없음 — STAC 투자자'
+};
+
 (function(){
 const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
 const WARN='<svg class="sym" width="13" height="13" viewBox="0 0 12 12" aria-label="압력"><path d="M6 .8 11.4 10.8H.6Z" fill="#F2857B"/><rect x="5.35" y="3.9" width="1.3" height="3.8" rx=".5" fill="#061423"/><circle cx="6" cy="9.1" r=".75" fill="#061423"/></svg>';
@@ -971,11 +1005,10 @@ function expandKeys(spec){const out=new Set();
   return out;}
 EVT.forEach(e=>e.set=expandKeys(e.keys));
 
-// ── 표 세 열: SECZ + 협업사 / 발행사 주도형 경쟁사 / 제3자형 경쟁사 ──
+// ── 표 두 열: SECZ + 협업사 / 경쟁사 (2026-09-29 세 열 → 두 열) ──
 const COL3=[
- {n:'SECZ + 협업사',s:'발행사 주도 방식 · SECZ 상태와 함께하는 회사(복합 포함)'},
- {n:'발행사 주도형 경쟁사',s:'발행사가 직접 만드는 토큰으로 겨루는 회사'},
- {n:'제3자형 경쟁사',s:'발행사 동의 없이 트윈·래퍼로 같은 수요를 가져가는 회사',alt:1}];
+ {n:'SECZ + 협업사',s:'SECZ 상태와 함께하는 회사(복합 포함)'},
+ {n:'경쟁사',s:'같은 상품의 수요를 두고 겨루는 회사 · 토큰 유형은 플레이어 카드에'}];
 const ALTM=[['twin','트윈'],['wrap','래퍼']];
 const RELN={sub:'대체',dom:'대체 우세',br:'SECZ도 공급',open:'길만 열림'};
 const ASSET_OF={};ASSETS.forEach(A=>{if(A.span){ASSET_OF[A.span]={A,role:'iss'};return;}
@@ -989,9 +1022,13 @@ const altEv=(c,t)=>t<=1?(SUBEV[c]?SUBEV[c][0]:'미확인'):'';   // 2028은 세�
 const cmpOf=k=>(NAMES[k]||[]).filter(x=>x[1]!=='co');
 const cpOf=k=>(NAMES[k]||[]).filter(x=>x[1]==='cp');      // 발행사 주도형 열 = 순수 경쟁만
 const allyOf=k=>(NAMES[k]||[]).filter(x=>x[1]!=='cp');   // SECZ + 협업사 열 = 협업 + 복합
+// 경쟁사 열 = 그 상품의 발행사 주도 칸 경쟁 + 트윈·래퍼 칸의 경쟁·복합(2026-09-29 두 열로 통합) — [id, 관계, 원래 칸]
+function compOf(r,A){const iss=A.span||A.m.iss,seen=new Set(allyOf(r+iss).map(x=>x[0])),out=[];
+  const add=(k,arr)=>arr.forEach(([id,rel])=>{if(seen.has(id))return;seen.add(id);out.push([id,rel,k]);});
+  add(r+iss,cpOf(r+iss)); if(!A.span)ALTM.forEach(([m])=>{const v=A.m[m];if(typeof v==='string')add(r+v,cmpOf(r+v));}); return out;}
 // 칸 이름 — 표의 세 열 이름과 같은 말로
 function cellLabel(k){const c=k.slice(2),ao=ASSET_OF[c];if(!ao)return CINFO[c]?CINFO[c].a:c;
-  return ao.role==='iss'?(ao.A.span?ao.A.a:`${ao.A.a} × 발행사 주도형`):`${ao.A.a} × 제3자형 ${ao.role==='twin'?'트윈':'래퍼'}`;}
+  return ao.role==='iss'?ao.A.a:`${ao.A.a} · ${ao.role==='twin'?'트윈':'래퍼'} 쪽`;}
 function relNote(rel){return rel==='br'?'이 세계에서 SECZ가 이 방식에도 토큰을 공급한다 — 대체가 아니라 공급 관계가 된다(추정).'
   :rel==='open'?'이 단계에는 이 방식으로 들어온 상대가 아직 없다 — 구조상 길만 열려 있다.':rel==='dom'?'이 세계에서 트윈이 담보·유통의 기본값이 된다 — 같은 수요의 대부분을 가져간다(추정).':'이 세계에서도 대체 경로는 열려 있다(추정).';}
 
@@ -1083,13 +1120,13 @@ function show(id,origin){
 }
 
 // ── 메인 ──
-// 막대 단계: 매출 = 매출 나는 칸 수(최대 3) · 경쟁 = 발행사 주도형 + 제3자형 경쟁사 수(0 / 1~4 / 5~8 / 9+)
+// 막대 단계: 매출 = 매출 나는 칸 수(최대 3) · 경쟁 = 경쟁사 수(두 열 기준·중복 제거)(0 / 1~4 / 5~8 / 9+)
 const lvComp=n=>n===0?0:n<=4?1:n<=8?2:3;
 const bars3=(n,cls)=>`<span class="b3 ${cls}">${[0,1,2].map(i=>`<i class="${i<n?'on':''}"></i>`).join('')}</span>`;
 function renderMain(){
-  $('#stars').innerHTML=STAGES.map((s,i)=>{let f=0,p=0,same=0,sub=0;
-    ASSETS.forEach(A=>{const c=A.span||A.m.iss,v=st0(s.r,c);if(v==='f')f++;if(v==='p')p++;same+=cpOf(s.r+c).length;if(!A.span)ALTM.forEach(([m])=>{if(typeof A.m[m]==='string')sub+=cmpOf(s.r+A.m[m]).length;});});const cmp=same+sub;
-    return `<button class="star rv" style="--i:${4+i*0.35}" data-ri="${i}" title="${s.n} · 매출 나는 칸 ${f} · 매출 미미 ${p} · 경쟁사 ${cmp}(발행사 주도형 ${same} · 제3자형 ${sub})"><span>${starArt(i)}</span><div class="nm">${s.n}</div><div class="stat bars"><span class="bx">${bars3(Math.min(3,f),'rev')}<em>매출</em></span><span class="bx">${bars3(lvComp(cmp),'cmpb')}<em>경쟁</em></span></div><div class="cmp">매출 칸 ${f} · 경쟁사 ${cmp}</div></button>`;}).join('')
+  $('#stars').innerHTML=STAGES.map((s,i)=>{let f=0,p=0,cmp=0;
+    ASSETS.forEach(A=>{const c=A.span||A.m.iss,v=st0(s.r,c);if(v==='f')f++;if(v==='p')p++;cmp+=compOf(s.r,A).length;});
+    return `<button class="star rv" style="--i:${4+i*0.35}" data-ri="${i}" title="${s.n} · 매출 나는 칸 ${f} · 매출 미미 ${p} · 경쟁사 ${cmp}"><span>${starArt(i)}</span><div class="nm">${s.n}</div><div class="stat bars"><span class="bx">${bars3(Math.min(3,f),'rev')}<em>매출</em></span><span class="bx">${bars3(lvComp(cmp),'cmpb')}<em>경쟁</em></span></div><div class="cmp">매출 칸 ${f} · 경쟁사 ${cmp}</div></button>`;}).join('')
 
   $$('#stars .star').forEach(b=>b.onclick=()=>openStage(+b.dataset.ri,b));
 }
@@ -1116,16 +1153,23 @@ function diffOf(r,t){let up=0,dn=0,rel=0,w=0,o=0;ASSETS.forEach(A=>{const c=A.sp
     if(!A.span)ALTM.forEach(([m])=>{const v=A.m[m];if(typeof v==='string'&&altRel(r+v,t)!==altRel(r+v,0))rel++;});});return {up,dn,rel,w,o};}
 function splitHead(txt){const m=String(txt||'').match(/^(.+?[.。])\s+([\s\S]*)$/);return m?[m[1],m[2]]:[txt||'',''];}
 function tpanel(t){const s=STAGES[S.ri],W=t>=2?WORLD[t===2?'A':'B']:null;
-  let h=`<div class="tpanel"><div class="tsum"><span class="when">${TN[t]}${W?`<small>${W.side}</small>`:''}</span><span class="tx">${(()=>{const d=diffOf(s.r,t),[hd,bd]=splitHead(ROWT[s.r][t]);const n=d.up+d.dn+d.rel;const tag=t===1?(d.w+d.o?`<span class="dlt">신호 ${d.w+d.o}칸 · ${WARN}${d.w} ✨${d.o}</span>`:''):t>=2?`<span class="dlt">지금 대비 ${n}칸 바뀜${d.up+d.dn?` · SECZ ▲${d.up} ▼${d.dn}`:''}</span>`:'';return `${tag}<b class="hd">${tx(hd)}</b> ${tx(bd)}`;})()}</span></div><div class="tbl">`;
+  let h=`<div class="tpanel"><div class="tsum"><span class="when">${TN[t]}${W?`<small>${W.side}</small>`:''}</span><span class="tx">${(()=>{const d=diffOf(s.r,t),[hd,bd]=splitHead(ROWT[s.r][t]);const n=d.up+d.dn;const tag=t===1?(d.w+d.o?`<span class="dlt">신호 ${d.w+d.o}칸 · ${WARN}${d.w} ✨${d.o}</span>`:''):t>=2?`<span class="dlt">지금 대비 ${n}칸 바뀜${d.up+d.dn?` · SECZ ▲${d.up} ▼${d.dn}`:''}</span>`:'';return `${tag}<b class="hd">${tx(hd)}</b> ${tx(bd)}`;})()}</span></div><div class="tbl">`;
   h+=`<div class="th corner"><span>상품 종류</span></div>`+COL3.map(M=>`<div class="th ${M.alt?'alt':''}"><b>${M.n}</b><span>${M.s}</span></div>`).join('');
   ASSETS.forEach(A=>{h+=`<div class="rh"><b>${A.a}</b></div>`;
     const k=s.r+(A.span||A.m.iss);
-    h+=cellA(k,t)+cellB(k,t)+(A.span?`<div class="cell na" title="기타 대체는 토큰 방식을 나누지 않았다 — 대체 경로 미분류"><b>—</b></div>`:cellC(A,s.r,t));});
+    h+=cellA(k,t)+cellComp(A,s.r,t);});
   h+=`</div>${legendHTML(t)}</div>`;return h;}
-function cellA(k,t){const r=k.slice(0,2),c=k.slice(2),s=stAt(r,c,t),co=allyOf(k);
-  const nm='<span class="it sz">Securitize</span>'+co.slice(0,2).map(([id,rel])=>`<span class="it ${rel}"><i></i>${pname(id)}</span>`).join('')+(co.length>2?`<span class="it">+${co.length-2}</span>`:'');   // SECZ 이름은 늘 맨 앞(서 있지 않은 칸은 흐리게)
+function cellA(k,t){const r=k.slice(0,2),c=k.slice(2),s=stAt(r,c,t),co=allyOf(k),AO=ASSET_OF[c];
+  const sup=AO&&!AO.A.span&&ALTM.some(([m])=>{const v=AO.A.m[m];return typeof v==='string'&&['f','p'].includes(stAt(r,v,t));});   // 2028 A: SECZ가 트윈·래퍼 쪽에도 토큰을 댐
+  const nm='<span class="it sz">Securitize</span>'+co.slice(0,2).map(([id,rel])=>`<span class="it ${rel}"><i></i>${pname(id)}</span>`).join('')+(co.length>2?`<span class="it">+${co.length-2}</span>`:'')+(sup?'<span class="it"><small class="role">트윈·래퍼에도 공급(추정)</small></span>':'');   // SECZ 이름은 늘 맨 앞(서 있지 않은 칸은 흐리게)
   const tip=esc(plain([SNAME[s],co.length?`협업 ${co.filter(x=>x[1]==='co').length}곳${co.some(x=>x[1]==='mx')?` · 복합 ${co.filter(x=>x[1]==='mx').length}곳`:''}`:'',t===1&&P27[k]?`${P27[k][0]} ${P27[k][1]}`:''].filter(Boolean).join(' · ')));
   return `<button class="cell s-${s}${t>=2&&s!==st0(r,c)?' chg3':''}" data-k="${k}" title="${tip}"><span class="gw">${s==='n'?'<i class="g0"></i>':glyph(s,30)}${chgHTML(k,t)}${pinHTML(k,t)}</span><span class="mid"><div class="nms">${nm}</div></span></button>`;}
+function cellComp(A,r,t){const k=r+(A.span||A.m.iss),cm=compOf(r,A),isHot=HOT.includes(k);
+  const dom=!A.span&&t===3&&ALTM.some(([m])=>typeof A.m[m]==='string'&&altRel(r+A.m[m],t)==='dom');
+  if(!cm.length) return `<button class="cell cb empty" data-k="${k}" title="경쟁사 기록 없음"><span class="mid"><div class="nms">—</div></span></button>`;
+  const nm=cm.slice(0,4).map(([id,rel,ck])=>{const ro=cellRole(ck,id);return `<span class="it ${rel}"><i></i>${pname(id)}${ro?`<small class="role">${ro[0]}</small>`:''}</span>`;}).join('')+(cm.length>4?`<span class="it">+${cm.length-4}</span>`:'')+(dom?'<span class="it"><small class="role">트윈 표준(추정)</small></span>':'');
+  const roT=cm.map(([id,,ck])=>cellRole(ck,id)).filter(Boolean).map(x=>' · '+x[1]).join('');
+  return `<button class="cell cb${isHot?' hot':''}${dom?' chg3':''}" data-k="${k}" title="경쟁사 ${cm.length}곳${isHot?' · 가장 붐비는 칸':''}${dom?' · 이 세계에서 트윈이 기본값이 된다(추정)':''}${roT}"><span class="mid"><div class="nms">${nm}</div></span>${sigHTML(cm.length)}</button>`;}
 function cellB(k,t){const cm=cpOf(k),isHot=HOT.includes(k);
   if(!cm.length) return `<button class="cell cb empty" data-k="${k}" title="발행사 주도형 경쟁사 기록 없음"><span class="mid"><div class="nms">—</div></span></button>`;
   const nm=cm.slice(0,3).map(([id,rel])=>{const ro=cellRole(k,id);return `<span class="it ${rel}"><i></i>${pname(id)}${ro?`<small class="role">${ro[0]}</small>`:''}</span>`;}).join('')+(cm.length>3?`<span class="it">+${cm.length-3}</span>`:'');
@@ -1143,8 +1187,8 @@ function cellC(A,r,t){const why=[];
 function legendHTML(t){
   const g=['f','p','l','q'].map(x=>`<span>${glyph(x,18)}${SNAME[x]}</span>`).join('');
   const tm=t===1?`<span>${WARN} 압력 · ✨ 기회</span>`:t>=2?'<span>▲▼ 지금 대비 · ◤ 바뀐 칸</span>':'';
-  const tag=t===2?'<span><i class="rt br">SECZ도 공급</i> SECZ가 이 방식에도 토큰을 댄다</span>':t===3?'<span><i class="rt dom">대체 우세</i> 이 방식이 표준이 된다</span>':'';
-  return `<div class="lgrid"><div>${tm}</div><div>${g}</div><div><span>기업명 색 <b style="color:var(--co);font-weight:500">협업</b> <b style="color:var(--mx);font-weight:500">복합</b> <b style="color:var(--cp);font-weight:500">경쟁</b></span></div><div>${tag}<span>— 상대 없음 또는 구조상 막힘 (마우스를 올리면 이유)</span></div></div>`;}
+  const tag=t===2?'<span>「트윈·래퍼에도 공급」 SECZ가 제3자 토큰 쪽에도 토큰을 댄다(추정)</span>':t===3?'<span>「트윈 표준」 이 상품에서 트윈이 기본값이 된다(추정)</span>':'';
+  return `<div class="lgrid"><div>${tm}</div><div>${g}</div><div><span>기업명 색 <b style="color:var(--co);font-weight:500">협업</b> <b style="color:var(--mx);font-weight:500">복합</b> <b style="color:var(--cp);font-weight:500">경쟁</b> · 토큰 유형은 플레이어 카드에</span>${tag}</div></div>`;}
 function bindCells(){$$('#track .cell[data-k],#track .aln[data-k]').forEach(b=>b.onclick=e=>{e.stopPropagation();openCell(b.dataset.k);});}
 function setTime(t,instant){S.t=Math.max(0,Math.min(3,t));
   const tp=$$('#track .tpanel'); if(instant) tp.forEach(x=>x.style.transition='none');
@@ -1175,7 +1219,7 @@ function updTsc(el,cur){el.dataset.cur=cur;el.querySelector('.fl').style.width=`
   el.querySelectorAll('.st').forEach((b,i)=>{b.classList.toggle('on',i===cur);b.classList.toggle('done',i<cur);});}
 
 // ── 칸 상세 (시점별) ──
-function openCell(k,keep){S.k=k;const r=k.slice(0,2),c=k.slice(2),t=S.t,row=ROWS.find(x=>x.id===r),stg=STAGES.find(x=>x.r===r);
+function openCell(k,keep){{const ao0=ASSET_OF[k.slice(2)];if(ao0&&ao0.role!=='iss')k=k.slice(0,2)+ao0.A.m.iss;}S.k=k;const r=k.slice(0,2),c=k.slice(2),t=S.t,row=ROWS.find(x=>x.id===r),stg=STAGES.find(x=>x.r===r);
   const s=stAt(r,c,t),s0=st0(r,c);
   {const ao=ASSET_OF[c];$('#pCrumb').innerHTML=`${grpOf(stIdx(r))} · ${stg.n}${ao&&ao.role!=='iss'?` <a class="back2" data-k="${r+ao.A.m.iss}">↔ 같은 상품의 SECZ 칸</a>`:''}`;$$('#pCrumb [data-k]').forEach(a=>a.onclick=()=>openCell(a.dataset.k));}
   $('#pTitle').innerHTML=cellLabel(k);
@@ -1189,7 +1233,7 @@ function openCell(k,keep){S.k=k;const r=k.slice(0,2),c=k.slice(2),t=S.t,row=ROWS
     if(s!==s0){const why=RANK[s]>RANK[s0]?W.up:W.down; own=why?`${why} <strong>${SNAME[s0]} → ${SNAME[s]}</strong>로 바뀐다(추정).`:`이 세계에서 <strong>${SNAME[s0]} → ${SNAME[s]}</strong>로 바뀐다(추정).`;}
     else note='이 세계에서도 그대로(추정)'; }
   const evs=EVT.filter(e=>e.set.has(k)&&e.t.includes(t));
-  const names=NAMES[k]||[];
+  const names=allyOf(k).map(([id,rel])=>[id,rel,k]).concat(ASSET_OF[c]?compOf(r,ASSET_OF[c].A):[]);
   const ups=(t<=1)?upOf(k):[];
   const AO=ASSET_OF[c],isAlt=!!(AO&&AO.role!=='iss'),hot=HOT.includes(k);
   // 머리 카드 — SECZ 칸은 상태, 트윈·래퍼 칸은 관계(대체·증거·상대)
@@ -1206,11 +1250,11 @@ function openCell(k,keep){S.k=k;const r=k.slice(0,2),c=k.slice(2),t=S.t,row=ROWS
       if(typeof v!=='string') return `<div class="subc off"><b>${lab} · ${v.t==='x'?'막힘':'따로 안 셈'}</b><br>${tx(v.why)}</div>`;
       const ak=r+v,rel=altRel(ak,t),cm=cmpOf(ak),ev=altEv(v,t);
       return `<div class="subc r-${rel}" data-k="${ak}"><b>${lab}</b><i class="rt">${RELN[rel]}</i> ${ev?`<span style="color:var(--muted);font-size:12px">${ev}</span>`:''}<span class="go">→ 칸 열기</span><br>상대 · ${cm.length?cm.map(([id,rl])=>`<span class="nm-${rl}">${pname(id)}</span>`).join(' · '):'—'}<br>${t<=1?tx(SUBEV[v]?SUBEV[v][1]:''):relNote(rel)}</div>`;}).join('')}</div>`:'';
-  const secChips=`<div class="sec"><h4>이 칸의 상대 · ${names.length}곳</h4>${names.length?`<div class="chips">${names.map(([id,rel])=>{const ro=cellRole(k,id);return `<span class="chip n-${rel}" data-p="${id}"${ro?` title="${ro[1]}"`:''}><i class="dot ${rel}"></i>${P[id].n}<small>${REL[rel]}${ro?' · '+ro[0]:''}</small></span>`;}).join('')}</div>`:'<p class="none">—</p>'}</div>`;
+  const secChips=`<div class="sec"><h4>이 칸의 상대 · ${names.length}곳</h4>${names.length?`<div class="chips">${names.map(([id,rel,ck])=>{const ro=cellRole(ck,id);return `<span class="chip n-${rel}" data-p="${id}"${ro?` title="${ro[1]}"`:''}><i class="dot ${rel}"></i>${P[id].n}<small>${REL[rel]}${ro?' · '+ro[0]:''}</small></span>`;}).join('')}</div>`:'<p class="none">—</p>'}</div>`;
   const secEvt=`<div class="sec"><h4>이 시점에 움직이는 일 · ${evs.length}</h4>${evs.length?evs.map(e=>`<details class="evd"><summary><span class="d">${e.d}</span>${e.n}</summary><div class="g">좋은 쪽 · ${e.good}</div><div class="bd">나쁜 쪽 · ${e.bad}</div><div class="s">관측 · ${e.sig}</div></details>`).join(''):'<p class="none">—</p>'}</div>`;
   const secUp=ups.length?`<div class="sec"><h4>매출 상방</h4>${ups.map(u=>`<div class="upc"><b>${u.n}</b><br>늘어나는 줄 · ${u.line}<br>가능성 · ${u.pr>=3?'상':u.pr>=2.5?'중상':u.pr>=2?'중':u.pr>=1.5?'하~중':'하'} · 첫 신호 · ${u.sig}</div>`).join('')}</div>`:'';
-  // 순서: 머리 → 이 칸 → (트윈·래퍼 칸의 관계 / 붐비는 칸의 제3자형) → 상대 → 사건 → 제3자형 → 상방 → 배경
-  h+=secRel+(hot?secAlt:'')+secChips+secEvt+(hot?'':secAlt)+secUp;
+  // 순서: 머리 → 이 칸 → 상대(협업 + 경쟁) → 사건 → 상방 → 배경
+  h+=secChips+secEvt+secUp;
   h+=`<details class="bg"><summary>배경 — 같은 줄 흐름 · 행·열 설명</summary><div class="sec"><h4 class="k">같은 줄 전체 · ${TN[t]}</h4><p>${tx(COLT[c][t])}</p></div><div class="sec"><h4 class="k">행 · 열 설명</h4><p style="font-size:13.5px">${row.d}<br>${tx(COLS[cIdx(c)].d)}</p></div></details>`;
   $('#pBody').innerHTML=h; if(!keep) $('#pBody').scrollTop=0;
   $$('#pBody .chip').forEach(ch=>ch.onclick=()=>openPlayer(ch.dataset.p));
@@ -1224,18 +1268,18 @@ function cellsOf(id){return Object.keys(NAMES).filter(k=>NAMES[k].some(x=>x[0]==
 function miniMap(id,cs){
   const rows=STAGES.map(s=>{const mine=cs.filter(k=>k.slice(0,2)===s.r);
     const by=b=>mine.filter(k=>roleOf(k,id)===b).map(k=>{const ao=ASSET_OF[k.slice(2)];return `<button data-k="${k}" title="${esc(`${stName(k)} · ${cellLabel(k)}`)}">${SHORT[ao.A.a]||ao.A.a}${ao.role==='twin'?' 트윈':ao.role==='wrap'?' 래퍼':''}</button>`;}).join('');
-    return `<div class="mr${mine.length?'':' e'}"><span class="ms">${s.n}</span>${['ally','iss','third'].map(b=>`<span class="mc c-${b}">${by(b)}</span>`).join('')}</div>`;}).join('');
-  return `<div class="mini"><div class="mr mh"><span></span><span>SECZ + 협업사</span><span>발행사 주도형</span><span>제3자형</span></div>${rows}</div>`;}
+    return `<div class="mr${mine.length?'':' e'}"><span class="ms">${s.n}</span>${['ally','comp'].map(b=>`<span class="mc c-${b}">${by(b)}</span>`).join('')}</div>`;}).join('');
+  return `<div class="mini"><div class="mr mh"><span></span><span>SECZ + 협업사</span><span>경쟁사</span></div>${rows}</div>`;}
 function openPlayer(id){const p=P[id],rel=p.r,pf=profileOf(id),cs=pf.cs,tv={'상':3,'중':2,'하~중':1.5,'하':1}[p.turn],live=/\[라이브 스크리너\]/.test(p.now||'');S.card=id;
   const lab=k=>`${stName(k)} · ${cellLabel(k)}`;
-  const sum=['third','iss','ally'].filter(b=>pf.cnt[b]).map(b=>`${BNAME[b]} ${pf.cnt[b]}`).join(' · ');
+  const sum=['comp','ally'].filter(b=>pf.cnt[b]).map(b=>`${BNAME[b]} ${pf.cnt[b]}`).join(' · ');
   const where=!cs.length?'—':cs.length<=3?`<span class="cells">${cs.map(k=>`<button data-k="${k}">${lab(k)}</button>`).join('')}</span>`:`<span style="font-size:13px;color:var(--muted)">${sum}</span>${miniMap(id,cs)}`;
   const turn=rel==='co'?'이미 협업':tv?`${p.turn}<span class="steps">${[1,2,3].map(i=>`<i class="${tv>=i?'on':tv>=i-.5?'half':''}"></i>`).join('')}</span>`:'평가 전';
   const ok=v=>v&&String(v).trim()!=='—';
   const fut=[['2027',p.y27],['2028+',p.y28],['동료가 되는 조건',p.peer],['적이 굳는 조건',p.foe],['관측 지표',p.sig]].filter(([,v])=>ok(v));
   const noflip=fut.length<=1;
   $('#cFront').innerHTML=`<span class="rel"><i class="dot ${rel}"></i>${REL[rel]}</span> <span class="grp" style="margin-left:10px">${p.g}</span>${live?'<span class="grp live">발굴 후보</span>':''}<h3 class="nm-${rel}">${p.n}</h3><div class="grp">2026-09 기준</div>
-    <div class="kv"><b>하는 일</b><span>${tx(p.now)}</span><b>서 있는 칸 · ${cs.length}</b><div>${where}</div>
+    <div class="kv"><b>하는 일</b><span>${tx(p.now)}</span>${TT[id]?`<b>토큰 유형</b><span>${TT[id]}</span>`:''}<b>서 있는 칸 · ${cs.length}</b><div>${where}</div>
     ${noflip?`<b>동료 전환</b><span>${turn}</span>`:''}</div><div class="fliphint">${noflip?'앞으로의 추정 기록 없음':'카드를 누르면 뒤집혀 미래가 보인다 ↻'}</div>`;
   const tl=[['지금',p.now],['2027',p.y27],['2028+ (갈림길 전)',p.y28]].filter(([,v])=>ok(v));
   $('#cBack').innerHTML=`<div class="grp">앞으로 · 추정</div><h3 class="nm-${rel}" style="font-size:32px">${p.n}</h3>
@@ -1260,8 +1304,8 @@ function renderAll(){const t=S.at;
   let f=0,tot=0;
   STAGES.forEach((s,i)=>{h+=`<div class="arh" data-ri="${i}">${starArt(i)}<span>${i%3===0?`<small class="gl">${grpOf(i)}</small>`:''}${s.n}</span></div>`;
     ASSETS.forEach(A=>{const c=A.span||A.m.iss,k=s.r+c,v=stAt(s.r,c,t);tot++;if(v==='f')f++;
-      const same=cpOf(k).length;let sub=0;if(!A.span)ALTM.forEach(([m])=>{const w=A.m[m];if(typeof w==='string')sub+=cmpOf(s.r+w).length;});const n=same+sub;
-      h+=`<div class="at2" data-k="${k}" title="${esc(`${s.n} × ${A.a} · SECZ ${SNAME[v]} · 경쟁사 ${n}곳(발행사 주도형 ${same} · 제3자형 ${sub})`)}"><span class="bx">${bars3(revLv(v),'rev')}${v==='q'?'<em>?</em>':''}</span><span class="bx">${bars3(cmpLv(n),'cmpb')}</span></div>`;});});
+      const n=compOf(s.r,A).length;
+      h+=`<div class="at2" data-k="${k}" title="${esc(`${s.n} × ${A.a} · SECZ ${SNAME[v]} · 경쟁사 ${n}곳`)}"><span class="bx">${bars3(revLv(v),'rev')}${v==='q'?'<em>?</em>':''}</span><span class="bx">${bars3(cmpLv(n),'cmpb')}</span></div>`;});});
   $('#agrid').innerHTML=h+`</div>`;
   $('#aCol').innerHTML='보기'+[['둘 다',0],['매출',1],['경쟁',2]].map(([nm,i])=>`<button class="${(S.acol||0)===i?'on':''}" data-c="${i}">${nm}<span>${i}</span></button>`).join('');
   $$('#aCol button').forEach(b=>b.onclick=()=>setCol(+b.dataset.c));
@@ -1270,15 +1314,15 @@ function renderAll(){const t=S.at;
   $('#aLegend').innerHTML=`<span style="color:#fff">${TIMEINFO[t].k} · ${SNAME.f} <b class="mono">${f}</b>칸 / ${tot}</span><span>${bars3(3,'rev')} 매출 — ● 가동 + 매출 = 3칸 · ◐ 매출 미미 = 1칸 · 그 외 0</span><span>${bars3(2,'cmpb')} 경쟁 — 경쟁사 수(0 · 1 · 2~3 · 4곳 이상)</span><span>? = 미확인</span>`;}
 
 // ── 플레이어 화면 ──
-// 회사 한 곳이 표의 어느 열에 서 있나 — 칸마다 판정해 가장 많은 열의 띠에 둔다(동수면 제3자형 > 발행사 주도형 > 협업)
+// 회사 한 곳이 표의 어느 열에 서 있나 — 칸마다 판정해 더 많은 열의 띠에 둔다(동수면 협업 관계 회사는 협업, 나머지는 경쟁)
 const SHORT={'국채 · MMF':'국채','사모신용':'사모신용','하이일드 · CLO':'HY·CLO','사모펀드 · 벤처':'사모펀드','상장주식':'상장','비상장주식':'비상장','기타 대체':'기타'};
-const BAND=[{id:'ally',n:'SECZ + 협업사'},{id:'iss',n:'발행사 주도형 경쟁사'},{id:'third',n:'제3자형 경쟁사'}];
-const BCOL={ally:'#C9D6E3',iss:'var(--warn)',third:'var(--legacy)'};
-const BNAME={ally:'협업',iss:'발행사 주도형',third:'제3자형'};
-function roleOf(k,id){const ao=ASSET_OF[k.slice(2)];if(ao&&ao.role!=='iss')return 'third';const x=(NAMES[k]||[]).find(y=>y[0]===id);return x&&x[1]!=='cp'?'ally':'iss';}
-function profileOf(id){const cs=cellsOf(id),cnt={ally:0,iss:0,third:0},st={},pr={third:3,iss:2,ally:1};
+const BAND=[{id:'ally',n:'SECZ + 협업사'},{id:'comp',n:'경쟁사'}];
+const BCOL={ally:'#C9D6E3',comp:'var(--warn)'};
+const BNAME={ally:'협업',comp:'경쟁'};
+function roleOf(k,id){const ao=ASSET_OF[k.slice(2)];if(ao&&ao.role!=='iss')return 'comp';const x=(NAMES[k]||[]).find(y=>y[0]===id);return x&&x[1]!=='cp'?'ally':'comp';}
+function profileOf(id){const cs=cellsOf(id),cnt={ally:0,comp:0},st={},pr={comp:2,ally:1};
   cs.forEach(k=>{const b=roleOf(k,id),r=k.slice(0,2);cnt[b]++;if(!st[r]||pr[b]>pr[st[r]])st[r]=b;});
-  const band=cs.length?['third','iss','ally'].reduce((a,b)=>cnt[b]>cnt[a]?b:a,'third'):(P[id].r==='co'?'ally':'iss');
+  const band=cnt.comp>cnt.ally?'comp':cnt.ally>cnt.comp?'ally':(P[id].r==='co'?'ally':'comp');
   return {cs,cnt,st,band};}
 const ticks=st=>`<span class="tk">${STAGES.map(s=>`<i title="${s.n}"${st[s.r]?` style="background:${BCOL[st[s.r]]}"`:''}></i>`).join('')}</span>`;
 function renderPlayers(){const groups=['공급','명부·배관','거래·유통','토큰화 전문사','담보·DeFi'];
@@ -1357,11 +1401,9 @@ sky(); if(!REDUCE) requestAnimationFrame(loop);
 $('#gLegend').innerHTML=[['f','가동 + 매출 — SECZ가 돈을 버는 칸'],['p','가동 중, 매출은 미미하거나 연동 안 됨'],['l','인가·도구는 있음, 가동 기록 없음'],['q','미확인 — 공개 자료로 확인하지 못한 칸(없다는 뜻이 아님)']].map(x=>`<div class="row">${glyph(x[0],26)}${x[1]}</div>`).join('')+
  `<div class="row"><span style="display:inline-block;width:26px"></span>빈칸 = SECZ가 서 있지 않은 칸</div><div class="row">${sigHTML(3)} 경쟁 강도 = 그 칸의 경쟁·복합 상대 수(4곳 이상 만칸)</div><div class="row"><i class="dot co"></i>협업 <i class="dot cp"></i>경쟁 <i class="dot mx"></i>복합</div><div class="row"><span style="border:1px solid var(--warn);width:22px;height:14px;display:inline-block"></span> 가장 붐비는 칸</div><div class="row">${WARN} 압력 · ✨ 기회(2027 초) · ▲▼ 지금 대비(2028)</div>`;
 
-$('#gLegend').innerHTML+=`<div class="row" style="margin-top:10px;display:block;line-height:1.6"><b>표의 세 열</b> — SECZ + 협업사(발행사 주도) · 발행사 주도형 경쟁사 · 제3자형 경쟁사(트윈·래퍼 · SEC 2026-01-28 직원 성명의 제3자 토큰 분류). 같은 방식으로 겨루는 회사와, 발행사 동의 없이 같은 수요를 가져가는 회사(DTCC 등)를 나눠 본다.</div>
- <div class="row"><i class="rt sub">대체</i> 제3자형이 같은 수요를 노린다 · 증거 수준(실운영·실거래·구조상 가능) 병기</div>
- <div class="row"><i class="rt dom">대체 우세</i> 2028 B(배관 독식)에서 트윈이 기본값이 되어, 같은 줄 SECZ 자리가 A 세계보다 낮아진다</div>
- <div class="row"><i class="rt br">SECZ도 공급</i> SECZ가 그 방식에도 토큰을 공급한다(2028 A) — 대체가 아니라 공급 관계</div>
- <div class="row">— = 제3자형 상대가 아직 없거나(길만 열림), 밑 증권 조건(가운데 상자 ①②③) 때문에 막힌 칸 — 마우스를 올리면 어느 쪽인지 나온다</div>`;
+$('#gLegend').innerHTML+=`<div class="row" style="margin-top:10px;display:block;line-height:1.6"><b>표의 두 열</b> — SECZ + 협업사 · 경쟁사. 경쟁사 열에는 같은 상품의 수요를 두고 겨루는 회사를 방식(발행사 주도형·수탁형·합성형)과 관계없이 모았다. 토큰화 펀드를 실어 나르는 판매망처럼 발행사가 아닌 회사는 이름 옆에 역할을 붙였다.</div>
+ <div class="row"><span style="font-size:12px;color:var(--muted);margin-right:6px">트윈·래퍼에도 공급(추정)</span>2028 A — SECZ가 제3자 토큰 쪽에도 토큰을 공급한다</div>
+ <div class="row"><span style="font-size:12px;color:var(--muted);margin-right:6px">트윈 표준(추정)</span>2028 B — 이 상품에서 트윈이 기본값이 된다</div>`;
 buildTsc($('#tScroll'),i=>setTime(i)); buildTsc($('#aScroll'),i=>{S.at=i;renderAll();});
 renderMain(); renderPlayers(); updRail();
 })();
