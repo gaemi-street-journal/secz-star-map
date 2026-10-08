@@ -495,7 +495,7 @@ details.bg[open] summary{color:var(--paper-dim);}
         <circle cx="118" cy="76" r="1.7"/><circle cx="101" cy="82" r="1.8"/><circle cx="84" cy="77" r="1.7"/><circle cx="128" cy="88" r="1.4"/><circle cx="74" cy="90" r="1.4"/>
       </g>
     </svg><span>The Gaemi Street Journal ↗</span></a>
-  <div class="eyebrow rv" style="--i:0">Latest update · 2026-10-08</div>
+  <div class="eyebrow rv" style="--i:0">Latest update · 2026-10-09</div>
   <h1 class="rv" style="--i:1">SECZ 경쟁·협업 지도</h1>
   <svg class="path" viewBox="0 0 1440 160" aria-hidden="true"><path d="M80 75 C 200 20, 280 130, 400 75 S 600 20, 720 75 S 920 130, 1040 75 S 1240 20, 1360 75" fill="none" stroke="url(#pathg)" stroke-width="1.4" stroke-dasharray="4 6"/>
     <defs><linearGradient id="pathg" x1="0" x2="1"><stop offset="0" stop-color="#7E97AE" stop-opacity=".45"/><stop offset="1" stop-color="#7E97AE" stop-opacity=".45"/></linearGradient></defs></svg>
@@ -602,7 +602,7 @@ const COLS=[
  {id:'C4b',n:'DTC 트윈',g:'하이일드·CLO',m:'수탁형',gray:1,d:'아직 아무도 없는 빈 열. 하이일드 채권·CLO 트랜치는 증권번호가 있고 DTC에 예탁돼 있어 국채처럼 트윈이 구조상 가능하다. DTCC 첫 서비스 범위(러셀1000·지수 ETF·미 국채)에는 빠져 있다. 144A 증권이라 적격 기관끼리만 돌 수 있어, 켜진다면 소매·DeFi가 아니라 기관 담보 이동 쪽일 가능성이 크다.'},
  {id:'C5',n:'사모펀드·벤처',g:'',m:'',d:'ARKVX·펀드행정 고객 663개. 토큰화 교차 판매의 저수지. 조합 지분은 운용사 동의 없이 못 넘기고, DTC에 없고, 기준가가 분기 평가라 헤지도 안 된다 → 발행사 주도(운용사 허락)가 사실상 강제되는 열. 피더·SPV도 운용사가 조합원으로 받아 줘야 한다.'},
  {id:'C6',n:'발행사 주도',g:'상장주식',m:'발행사 주도',d:'발행사가 직접 만드는 "진짜 주식" 토큰. SECZ·Computershare·Superstate·tZERO 방식. 경쟁의 본진, 매출은 0.'},
- {id:'C7',n:'DTC 트윈',g:'상장주식',m:'수탁형',gray:1,d:'DTC 예탁 청구권 토큰(동일 CUSIP·발행사 동의 불요). 2026년 4분기 정식 출시 예정(7/15 발표 10월 → 10/7 FAQ 4분기), Nasdaq 토큰(2027 2분기)이 이 배관 위. SECZ 부재.'},
+ {id:'C7',n:'DTC 트윈',g:'상장주식',m:'수탁형',gray:1,d:'DTC 예탁 청구권 토큰(동일 CUSIP·발행사 동의 불요). 2026년 4분기 정식 출시 예정(7/15 발표 10월 → 10/7 FAQ 4분기), Nasdaq 토큰(2027 2분기)이 이 배관 위. [2026-10-09 반영] 10/8 SECZ도 수탁형으로 들어옴 — Securitize Stocks 12종목(DTC 원장 토큰이 아니라 Securitize Markets 장부상 엔타이틀먼트 · 발행사가 토큰화를 시작하며 Securitize를 지정하면 발행사 주도 토큰으로 전환되는 전환형 · https://x.com/Securitize/status/2108180783827411451).'},
  {id:'C8',n:'역외 래퍼·합성',g:'상장주식',m:'합성형',gray:1,d:'미국 밖 전용. Ondo GM(점유 1위 27.19%)·Robinhood(역외 채무증권)·xStocks. 미국 진입하려면 "동일 권리" 토큰이 필요 → 동료 전환 후보.'},
  {id:'C9',n:'발행사 주도',g:'비상장주식',m:'발행사 주도',d:'비상장 지분의 발행사 주도 토큰. Socios 스포츠 구단 지분(EU DLT 첫 프로젝트 예정). 배관(DTC)이 못 오는 자산.'},
  {id:'C10',n:'예탁증서·SPV',g:'비상장주식',m:'래퍼',gray:1,d:'Citi 인가 토큰화 예탁증서(SIX 체인)·SPV 청구권. 은행 컨소시엄 표준화가 위험.'},
@@ -610,9 +610,9 @@ const COLS=[
 ];
 // 상태: f=가동+매출 p=가동·매출 미미 l=인가만 n=없음 q=확인필요
 const S0={
-R1:'l n p p n p n n n n n q', R2:'f n f p n p p n n l n p', R3:'f n f p n p p n n l n p',
-R4:'f n f p n p p n n l n q', R5:'p n p p n f n n n n n q', R6:'n n l n n l l n n l n l',
-R7:'f n p p n p p n n l n p', R8:'p n p p n p p n n p n n', R9:'p n p p n n p n n n n n'};
+R1:'l n p p n p n n n n n q', R2:'f n f p n p p p n l n p', R3:'f n f p n p p p n l n p',
+R4:'f n f p n p p n n l n q', R5:'p n p p n f n n n n n q', R6:'n n l n n l l p n l n l',
+R7:'f n p p n p p p n l n p', R8:'p n p p n p p p n p n n', R9:'p n p p n n p n n n n n'};
 const HOT=['R2C6','R3C6','R4C6','R7C6','R8C6'];
 // 칸 안 이름 [플레이어id, 관계]
 const NAMES={
@@ -623,8 +623,8 @@ R3C1:[['ondo','cp'],['franklin','cp']], R3C2:[['dtcc','cp']], R3C3:[['plume','cp
 R4C1:[['bny','mx']], R4C2:[['dtcc','cp']], R4C6:[['computershare','mx'],['tzero','cp'],['equiniti','cp'],['vertalo','cp'],['continental','co'],['broadridge','mx']], R4C7:[['dtcc','cp']], R4C10:[['citi','cp']],
 R5C1:[['bny','mx'],['blackrock','mx'],['vaneck','co']], R5C3:[['apollo','co']], R5C4:[['neuberger','co']],
 R6C1:[['bny','mx']], R6C2:[['dtcc','cp']], R6C4:[['bny','mx']], R6C6:[['tzero','cp']], R6C7:[['dtcc','cp']], R6C10:[['citi','cp']],
-R7C1:[['ondo','cp'],['kb','co'],['dtcc','cp']], R7C2:[['dtcc','cp']], R7C6:[['blockchaincom','mx'],['coalition','cp']], R7C8:[['robinhood','cp'],['kraken','cp'],['coinbase','cp'],['gemini','cp'],['blockchaincom','mx']], R7C9:[['socios','co']], R7C10:[['citi','cp']],
-R8C6:[['nyse','co'],['jump','co'],['tzero','cp']], R8C7:[['nasdaq','cp']], R8C8:[['ondo','cp'],['robinhood','cp']],
+R7C1:[['ondo','cp'],['kb','co'],['dtcc','cp']], R7C2:[['dtcc','cp']], R7C6:[['blockchaincom','mx'],['coalition','cp']], R7C7:[['ripple','co']], R7C8:[['robinhood','cp'],['kraken','cp'],['coinbase','cp'],['gemini','cp'],['blockchaincom','mx']], R7C9:[['socios','co']], R7C10:[['citi','cp']],
+R8C6:[['nyse','co'],['jump','co'],['okxice','mx'],['tzero','cp']], R8C7:[['nasdaq','cp'],['jump','co'],['okxice','mx'],['nyse','co']], R8C8:[['ondo','cp'],['robinhood','cp']],
 R9C1:[['defi','co']], R9C2:[['dtcc','cp']], R9C4:[['ethena','co'],['defi','co']], R9C4b:[['dtcc','cp']], R9C6:[['defi','co']], R9C7:[['dtcc','cp']]
 };
 const NOTES={
@@ -671,14 +671,19 @@ R7C6:'소비 쪽이 비어 있는 칸. Blockchain.com(확인 계좌 4,400만+)�
 R7C8:'역외 유통사의 칸. 미국 고객에게 팔려면 9/17 면제의 "동일 권리"(합성 제외·발행사 거부권)를 채워야 한다 → 명부를 찍는 쪽(SECZ 등)에서 토큰을 받아와야 한다. 적에서 동료가 될 가능성이 가장 큰 칸.',
 R7C9:'Socios가 팬 층·구단 관계를, SECZ가 투자자 온보딩을 맡는다(9/2 제휴) — 아직 발행 전이라 ○.',
 R8C1:'BUIDL은 Uniswap 등에서 일부 2차 유동성. 규모는 작다.',
-R8C6:'NYSE 디지털 플랫폼(규제 승인 대기·출시일 미공개), 자체 ATS, Solana(Jump 프롭 AMM·Jupiter). Solana 거래 화면은 9/8~9/9에 "Market unavailable"이 표시된 적이 있다(9/29 시간외에는 가격 편차 경고와 함께 열림). 9/17 혁신 면제의 AMM 거래장소(TSV)와 구조가 맞지만 한도(원주 직전월 평균 거래량의 0.25% · 대형 75종목 / 2.5% · 그 외 250종목)가 크기를 막는다.',
+R8C6:'NYSE 디지털 플랫폼(규제 승인 대기·출시일 미공개), 자체 ATS, Solana(Jump 프롭 AMM·Jupiter). Solana 거래 화면은 9/8~9/9에 "Market unavailable"이 표시된 적이 있다(9/29 시간외에는 가격 편차 경고와 함께 열림). 9/17 혁신 면제의 AMM 거래장소(TSV)와 구조가 맞지만 한도(원주 직전월 평균 거래량의 0.25% · 대형 75종목 / 2.5% · 그 외 250종목)가 크기를 막는다. [2026-10-09 반영] 10/8 Securitize Stocks 출시 — 같은 Solana 장에서 토큰화 SECZ가 수탁형 12종목과 함께 거래(10/9 화면 "Markets open" · Jump = 마켓메이커). OKXICE TSV(ICE·OKX 합작) 출시 파트너 — CEO "launch partner" · 회사 공식 문구는 "expected" · 발표문에 OKXICE 공동의장 인용 · https://x.com/Securitize/status/2108180783827411451',
 R8C9:'Securitize Markets ATS에서 사모 증권 거래.',
 R9C1:'BUIDL이 여러 거래소·DeFi에서 담보(Euler 등). 그러나 SECZ 담보 수수료 공시 0. DTCC 국채 트윈은 7/15 실운영에서 CME 증거금으로 납입됐다 — 같은 자리를 노린다.',
 R9C4:'HINC가 9/1 Loopscale에서 가동, Aave Horizon 등재 제안. 사는 이유가 수익률이 아니라 담보 효용으로 바뀐다. STAC(자사 AAA CLO 펀드)에는 2분기 Ethena가 $2.5억을 편입했다(9/25 약 $2.8억).',
 R1C4b:'SECZ가 택하지 않은 모델의 빈 열. 이 열을 만든 이유는 경쟁 강도가 아니라 경로를 보이기 위해서다 — 하이일드·CLO 칸에도 국채처럼 트윈 대체 경로가 구조상 열려 있다.',
 R4C4b:'켜진다면 명부는 DTC 쪽에 남고 토큰은 청구권이 된다(국채 트윈과 같은 구조).',
 R9C4b:'가장 먼저 켜질 자리. 기관 담보 이동(국채 트윈의 7/15 CME 증거금 같은 경로)이 144A 채권으로 넓어질 때. GSR은 가장 확장 가능한 기관 담보로 HY/CLO가 아니라 단기 국채를 꼽았다.',
-R9C6:'토큰화 SECZ 주식이 8/20 Loopscale 담보로 가동(오라클 RedStone). 매출 사건 아님.'
+R9C6:'토큰화 SECZ 주식이 8/20 Loopscale 담보로 가동(오라클 RedStone). 매출 사건 아님.',
+R2C7:'[2026-10-09 반영] 10/8 Securitize Markets(BD)가 AAPL·MSFT·NVDA·GOOGL·TSLA·META·AMZN·NFLX·CRCL·SPCX·MSTR·PLTR 12종목의 수탁형 토큰(CET)을 직접 만든다. 발행사 동의는 받지 않는 구조 — 발행사 고객이 생긴 것은 아니다. https://x.com/Securitize/status/2108180783827411451',
+R3C7:'[2026-10-09 반영] Securitize Stocks 토큰은 Solana 메인넷에서 발행 · 지갑을 연결해 화이트리스트에 올린 뒤 거래(stocks.securitize.io 종목 화면).',
+R6C7:'[2026-10-09 반영] CET의 원주는 Securitize Markets가 장부(book-entry)로 보관하고 빌려주지 않는다(Entitlement Token Disclosure 2026-09-15 · 공식 발표 "No share lending"). 수탁 칸이 처음 실제로 움직인 사례 — 수탁 수익 공시는 없다.',
+R7C7:'[2026-10-09 반영] 미국·EU·기타 허용 국가 적격 투자자에게 직접 판매(KYC). Ripple Prime(Ripple의 기관 프라임 브로커)이 출시 지원·기관 거래 편입을 검토하겠다고 함(계획). https://x.com/Securitize/status/2108180783827411451',
+R8C7:'[2026-10-09 반영] Securitize 자체 Solana 장(Jump 프롭 AMM)에서 거래 시작 · 연장 거래시간 → 24시간 목표. OKXICE TSV·NYSE 24시간 디지털 장에서도 거래 예정(회사 문구 "expected"). 자체 장은 BD 거래라 혁신 면제 한도 밖, TSV에서는 한도 적용. 같은 종목 주문을 두고 OKXICE와는 협업이자 경쟁(복합). https://x.com/carlosdomingo/status/2108190365094224374'
 };
 // 2027 압력(⚠) / 기회(✨)
 const P27={
@@ -692,6 +697,7 @@ R3C6:['✨','Computershare 첫 IST 발행(SECZ CEO "연내" 언급 · Computersh
 R2C9:['✨','Socios 첫 구단 발행 · EU TSS 첫 거래.'],
 R2C1:['✨','KB 첫 기관 MMF · GENIUS 효력(2027-01-18)으로 준비금 펀드 수요(적격 여부는 OCC 최종규칙 대기).'],
 R5C5:['✨','펀드행정 고객의 토큰 클래스 추가.'],
+R8C7:['⚠','OKXICE TSV 실제 출시(30일 대기 · 빨라야 11월 초)와 NYSE 24시간 장 승인 — 회사 문구는 둘 다 "expected". 첫 전환 사례(발행사가 Securitize를 지정해 토큰화)도 본다.'],
 R9C4b:['⚠','DTCC 담보 레일의 적격 목록이 국채·대형주 밖(144A 채권·CLO)으로 넓어지는지 — 넓어지면 이 빈 열이 켜진다.']
 };
 // 2028 갈림길 A(명부 필수화) / B(배관 독식) — 상태 덮어쓰기
@@ -735,7 +741,7 @@ continental:{n:'Continental',r:'co',g:'명부·배관',now:'Tokenized SECZ 때 �
 broadridge:{n:'Broadridge',r:'mx',g:'명부·배관',now:'Ondo 토큰화 주식에 ProxyVote로 의결권 전달 · DTCC 7/15 실운영 참가 · 전 모델 지원. SECZ와의 제휴 기록은 없다.',y27:'"동일 권리" 요건이 굳으면 위임장 전달 공급자로 누구와도 협업.',y28:'—',peer:'SECZ 발행 토큰의 의결권 처리를 맡음.',foe:'자체 토큰 명부까지 확장.',sig:'SECZ 토큰의 의결권 처리 방식',when:'2027',turn:'상'},
 superstate:{n:'Superstate',r:'mx',g:'토큰화 전문사',now:'같은 네이티브 진영 · DTCC 7/15 실운영 명단에 없음.',y27:'규제에선 같은 편, 영업에선 경쟁.',y28:'—',peer:'SEC 의견서 공동 목소리.',foe:'발행사 영업 가격 경쟁.',sig:'의견서 공동 서명',when:'11/3 전후',turn:'중'},
 vertalo:{n:'Vertalo',r:'cp',g:'명부·배관',now:'등록 TA · 9/6 SEC 이전대리인 의견서 79쪽 — 아키텍처 논리는 SECZ와 같은 방향, 소형 TA 비용·시간표 논거는 반대 방향.',y27:'TA 규칙이 소형 비용을 올리면 밀려남.',y28:'—',peer:'—',foe:'—',sig:'—',when:'—',turn:'—'},
-nyse:{n:'NYSE (ICE)',r:'co',g:'거래·유통',now:'3/24 MOU(원문 비공개) · 디지털 플랫폼 규제 승인 대기·출시일 미공개 · SECZ CEO "4분기 계획, 거래량은 2027년 가능성".',y27:'승인 TA 명단(시기 미발표 · 관측 시한 ~2027-03).',y28:'뜨면 주식 칸 핵심 유통 경로.',peer:'—',foe:'명단에서 SECZ 부재.',sig:'ICE 발표 문구·명단',when:'~2027-03',turn:'—'},
+nyse:{n:'NYSE (ICE)',r:'co',g:'거래·유통',now:'3/24 MOU(원문 비공개) · 디지털 플랫폼 규제 승인 대기·출시일 미공개 · SECZ CEO "4분기 계획, 거래량은 2027년 가능성". [10/9 반영] 10/8 회사 공식: Securitize Stocks도 NYSE 24시간 디지털 장에서 거래 예정(장 출시·규제 조건부).',y27:'승인 TA 명단(시기 미발표 · 관측 시한 ~2027-03).',y28:'뜨면 주식 칸 핵심 유통 경로.',peer:'—',foe:'명단에서 SECZ 부재.',sig:'ICE 발표 문구·명단',when:'~2027-03',turn:'—'},
 blockchaincom:{n:'Blockchain.com',r:'mx',g:'거래·유통',now:'9/23 NYSE 접근 MOU(확인 계좌 4,400만+ · 승인·출시 조건부) — 기사상 SECZ가 디지털 TA·BD 참가자로 예상 · 역외에선 Ondo 토큰 판매.',y27:'두 레일 중 어느 쪽 물량이 큰지가 관측점.',y28:'—',peer:'NYSE 레일 물량 확대.',foe:'Ondo 레일 물량이 더 커짐.',sig:'레일별 물량',when:'2027',turn:'—'},
 nasdaq:{n:'Nasdaq (+Kraken)',r:'cp',g:'거래·유통',now:'3/18 SEC 승인(토큰화 증권 거래) · DTCC 토큰화 서비스 위 · 9/10 Payward(Kraken 모회사)에 $1억 투자 · 자체 토큰 2027 2분기 출시 예정.',y27:'DTCC 진영의 거래소 얼굴.',y28:'—',peer:'Nasdaq 상장사가 발행사 주도를 택할 때(약함).',foe:'—',sig:'Nasdaq 토큰 첫 분기',when:'2027 2분기',turn:'하'},
 robinhood:{n:'Robinhood',r:'cp',g:'거래·유통',now:'주식 토큰 = 역외 채무증권(면제 제외 유형) · 9/17 배당 반영을 배당락일로 앞당김 · AMC CEO가 거부권 들어 공개 지목.',y27:'미국 진입엔 "동일 권리" 토큰 필요.',y28:'유통망 동료 또는 TA 인수 후 수직 통합.',peer:'미국 고객용 발행사 주도 토큰을 명부 쪽에서 조달 → SECZ = 공급자.',foe:'TA 직접 인수(Bullish 방식).',sig:'권리 구조 변경 · TA 인수 · 첫 TSV 공지자',when:'2027~2028',turn:'상'},
@@ -744,7 +750,9 @@ coinbase:{n:'Coinbase (Base)',r:'cp',g:'거래·유통',now:'4/2 OCC 국가신�
 gemini:{n:'Gemini',r:'cp',g:'거래·유통',now:'디지털자산 거래소(GEMI) · 2025-06부터 EU에서 Dinari가 발행한 토큰화 미국 주식 유통(Gemini KID).',y27:'—',y28:'—',peer:'역외 유통사와 같은 논리.',foe:'—',sig:'—',when:'—',turn:'상'},
 coalition:{n:'발행사 후원 연합',r:'cp',g:'거래·유통',now:'9/24 Bullish·Equiniti 결성, 첫 참여 Alpaca·Apex·DriveWealth(구속력 없음) — 첫 명단에 SECZ 없음. "발행사 후원"은 SECZ가 써 온 용어.',y27:'연합의 명부 담당 선택.',y28:'—',peer:'연합은 비독점·개방형 — SECZ도 참여할 수 있다.',foe:'Equiniti가 연합의 명부 담당으로 굳음.',sig:'연합의 TA 파트너 발표',when:'2027-01 전후',turn:'중'},
 kb:{n:'KB증권',r:'co',g:'거래·유통',now:'9/23 MOU — 기관 MMF → KB운용 펀드 → 주식·ADR·회사채·한국 국채 협력 검토. 구속력·금액 없음.',y27:'첫 기관 MMF.',y28:'원화·한국 국채 열이 새로 생길 수도.',peer:'—',foe:'—',sig:'첫 기관 MMF',when:'2027',turn:'—'},
-jump:{n:'Jump · Jupiter',r:'co',g:'거래·유통',now:'Solana 프롭 AMM 유동성·분배(Tokenized SECZ). 9/8~9/9 거래 화면에 Market unavailable 표시 기록 · 9/29 시간외엔 가격 편차 경고와 함께 열림.',y27:'혁신 면제 TSV 구조와 일치.',y28:'—',peer:'—',foe:'—',sig:'시간외·주말 거래 상태',when:'—',turn:'—'},
+jump:{n:'Jump · Jupiter',r:'co',g:'거래·유통',now:'Solana 프롭 AMM 유동성·분배(Tokenized SECZ). 9/8~9/9 거래 화면에 Market unavailable 표시 기록 · 9/29 시간외엔 가격 편차 경고와 함께 열림. [10/9 반영] 10/8부터 Securitize Stocks 12종목 + 토큰화 SECZ의 마켓메이커(회사 공식).',y27:'혁신 면제 TSV 구조와 일치.',y28:'—',peer:'—',foe:'—',sig:'시간외·주말 거래 상태',when:'—',turn:'—'},
+okxice:{n:'OKXICE (ICE·OKX)',r:'mx',g:'거래·유통',now:'ICE·OKX 50:50 합작의 토큰화 증권 거래장소(TSV) · 10/4 SEC 통지(거래 대상 63종목에 SECZ 포함 · 30일 대기) · 10/8 Securitize CEO "출시 파트너로 선정" · Securitize 발표문에 OKXICE 공동의장 인용 · 회사 공식 문구 "expected to be available".',y27:'Securitize Stocks·토큰화 SECZ가 오르는 거래장소 후보. 제3자 토크나이저도 받을 수 있는 구조라 공급자는 SECZ만이 아닐 수 있다.',y28:'—',peer:'SECZ 토큰을 받아 주는 거래장소.',foe:'SECZ 자체 Solana 장과 같은 종목 주문을 놓고 겨룸 · 모회사 ICE는 tZERO와도 제휴.',sig:'OKXICE 공지의 토크나이저 이름 · 출시일',when:'빨라야 2026-11',turn:'—'},
+ripple:{n:'Ripple Prime',r:'co',g:'거래·유통',now:'Ripple의 기관 대상 프라임 브로커 · 10/8 Securitize Stocks 출시 지원과 기관 거래 생태계 편입 검토를 밝힘(계획 · Ripple Prime 사장 인용).',y27:'기관 쪽 판매 경로 후보.',y28:'—',peer:'—',foe:'—',sig:'실제 편입 발표',when:'—',turn:'—'},
 ondo:{n:'Ondo (+Oasis Pro)',r:'cp',g:'토큰화 전문사',now:'토큰화 주식 1위(rwa.xyz 유통형 9/29 27.19%) · 3모델 동시 · Oasis Pro 100%(BD·ATS·TA · FY2025 재무는 이자수입뿐으로 실가동 전 · 7/23 FINRA 인가) · Fund/SERV 첫 토큰화 회원 · 9/24 BlackRock 포트폴리오 전략 기반 온체인 포트폴리오 · 창업자 사망 후 매각 타진 보도(CoinDesk 9/24 · 익명 소식통 · 회사 부인).',y27:'(가정) 더 큰 회사가 사면 "강해진 1위".',y28:'미국 발행사 주도 레인에서 실제 명부 역량이 필요해지는 순간이 관측점.',peer:'외부 TA가 필요할 때 · 인수자가 SECZ 파트너일 때.',foe:'더 큰 회사가 인수.',sig:'매각 후속 · Oasis Pro TA 활동',when:'불확실',turn:'하'},
 circle:{n:'Circle (USYC·Arc)',r:'mx',g:'토큰화 전문사',now:'USYC = 역외 토큰 MMF(SECZ 미사용) · Arc 메인넷 9/16 · 사전판매에 BlackRock·Apollo·ICE · BD·ATS·TA 인가 없음.',y27:'BUIDL Arc 통합 여부.',y28:'BD·ATS·TA 인수 시 발행 칸 직접 경쟁.',peer:'USDC 결제·Arc 배포에서 SECZ가 발행층 유지.',foe:'운용사가 Arc에서 SECZ 없이 발행 · 라이선스 인수.',sig:'BUIDL Arc 발행 주체',when:'2027',turn:'—'},
 figure:{n:'Figure',r:'cp',g:'토큰화 전문사',now:'주택담보 대출 토큰화 · 상장사(FIGR) · 자체 체인 Provenance.',y27:'자산군이 달라 정면 충돌 작음.',y28:'—',peer:'—',foe:'—',sig:'—',when:'—',turn:'—'},
@@ -765,7 +773,7 @@ R1:['SECZ는 Securitize Capital(7/22 RIA 등록 효력)로 자문한다. 자사 
     '새 자문 칸은 거의 생기지 않는다. 관측점은 HINC 잔액과 두 번째 자체 펀드다. 자체 펀드가 커질수록 고객 운용사와 경쟁한다는 부작용도 함께 커진다.',
     '명부 필수화 세계에서도 자문 칸은 크게 바뀌지 않는다. 규칙이 바꾸는 것은 명부 단계이지 자문이 아니다.',
     '배관 독식 세계에서 SECZ에게 남는 펀드 칸의 일부다. 자문 매출은 규칙이 아니라 모집력에 달려 있다.'],
-R2:['매출의 몸통이다. 2분기 토큰화 매출은 $784만이고 펀드 쪽 발행에서 나온다. 주식 발행 칸은 FINRA 인수 자격까지 있지만 외부 대형 상장사 고객은 0곳이다.',
+R2:['매출의 몸통이다. 2분기 토큰화 매출은 $784만이고 펀드 쪽 발행에서 나온다. 주식 발행 칸은 FINRA 인수 자격까지 있지만 외부 대형 상장사 고객은 0곳이다. 10/8부터는 Securitize가 발행사 동의 없이 수탁형 토큰을 직접 만든다(Securitize Stocks 12종목) — 발행사 고객이 생긴 것은 아니다.',
     '관측할 것은 넷이다. 3분기 토큰화 매출 $920만 이상, KB증권 첫 기관 MMF, Socios 첫 구단, Cantor 첫 온체인 IPO. 2027-01-18 GENIUS법 효력으로 준비금 펀드 수요가 생길 수 있다(적격 여부는 OCC 최종규칙 대기).',
     '역외 래퍼가 미국에 들어오려고 발행사 주도 토큰을 조달한다. 래퍼 줄의 발행 칸에 SECZ가 공급자로 등장한다(◐). 상장주식 발행사 주도 칸과 비상장 발행 칸은 ●가 된다.',
     '트윈이 기본값이 되면서 상장주식 발행 칸은 "원하는 소수 발행사용 선택지"로 ◐에 머문다. 대신 사모펀드·비상장 발행이 주 경로(●)가 된다.'],
@@ -781,16 +789,16 @@ R5:['Securitize Fund Services(MG Stover 인수 포함)의 활성 펀드는 663�
     '✨ 펀드행정 고객이 토큰 클래스를 추가하는 첫 사례가 관측점이다. 확률 순으로 본 매출 상방 1위가 이 칸에서 나온다.',
     '규칙과 무관한 칸이다. 그대로 ●다.',
     '배관 독식 세계에서도 살아남는 칸이다. "배관이 못 가는 자산"으로 넓어지는 길(경로 2)의 중심이다.'],
-R6:['SECZ의 약한 줄이다. BD 토큰 수탁 승인(5/4 발표)은 받았지만 가동 기록이 없다. 대형 펀드 수탁은 BNY가 맡는다. 회사 모델이 "투자자 본인 보관"이라 수탁 수익은 처음부터 작게 설계돼 있다.',
+R6:['SECZ의 약한 줄이다. BD 토큰 수탁 승인(5/4 발표)을 받았고, 10/8부터 Securitize Stocks 12종목의 원주를 Securitize Markets가 장부로 보관한다(빌려주지 않음). 수탁 수익 공시는 없다. 대형 펀드 수탁은 BNY가 맡는다. 회사 모델이 "투자자 본인 보관"이라 수탁 수익은 처음부터 작게 설계돼 있다.',
     '큰 변화는 예상되지 않는다.',
     '명부 과점 세계에서도 수탁은 은행과 DTC의 몫이다. SECZ는 ○(인가만)에 머문다.',
     '트윈은 DTC가 보관한다. 수탁 줄에서 SECZ의 자리는 더 좁아진다.'],
-R7:['CEO는 지금 필요한 것이 "소비 쪽의 돌파", 곧 유통이라고 말했다. 국채 펀드 판매 칸은 ●다(Securitize Markets). 주식 유통 칸은 소비 쪽이 비어 있다. Blockchain.com(확인 계좌 4,400만+)이 9/23 NYSE와 접근 MOU를 맺었지만 아직 가동 전이고, 역외에서는 Ondo 토큰을 판다. 9/24 발행사 후원 연합의 첫 명단에 SECZ는 없다.',
+R7:['CEO는 지금 필요한 것이 "소비 쪽의 돌파", 곧 유통이라고 말했다. 국채 펀드 판매 칸은 ●다(Securitize Markets). 주식 유통 칸은 소비 쪽이 비어 있다. Blockchain.com(확인 계좌 4,400만+)이 9/23 NYSE와 접근 MOU를 맺었지만 아직 가동 전이고, 역외에서는 Ondo 토큰을 판다. 9/24 발행사 후원 연합의 첫 명단에 SECZ는 없다. 10/8 Securitize Stocks로 미국·EU 적격 투자자에게 주식 토큰을 직접 팔기 시작했고, Ripple Prime이 기관 쪽 출시 지원을 밝혔다(계획).',
     '⚠ DTCC Fund/SERV의 첫 토큰화 회원은 Ondo 자회사다. SECZ가 가입하느냐가 관측점이다. ⚠ 발행사 후원 연합이 명부 담당을 누구로 정하는지도 본다. KB 첫 기관 MMF가 한국 유통의 첫 관문이다. ⚠ 9/28 DTCC가 iCapital(자산관리사 약 3,900곳·대체투자 플랫폼 자산 $3,270억)에 전략 지분 투자를 하고 AIP 통합을 첫 협업 과제로 잡았다 — 사모 판매 배관의 표준화다. AIP가 토큰 펀드 지분을 처리 대상으로 받는지가 관측점이다.',
     '역외 유통사(Robinhood·Kraken·Coinbase·Gemini)가 미국 고객용 "동일 권리" 토큰을 명부 쪽에서 조달한다. 적이 유통망 동료가 된다. 상장주식 유통 칸은 ●가 되고, SECZ는 발행·명부로 토큰을 공급하며 유통은 그들이 맡는다.',
     '트윈이 유통의 기본값이 된다. 상장주식 유통 칸은 ○(인가만)로 내려간다. 국채 유통도 Fund/SERV 배관 쪽으로 몫이 옮아 ◐가 된다. 사모 판매 배관에도 DTCC(AIP×iCapital)가 들어와 있어 펀드 판매 칸의 ●도 장담할 수 없다.'],
-R8:['NYSE 디지털 플랫폼(규제 승인 대기·출시일 미공개), 자체 ATS, Solana(Jump 프롭 AMM·Jupiter)가 있다. Solana 거래 화면은 9/8~9/9에 "Market unavailable"이 표시된 적이 있다. 9/17 혁신 면제의 AMM 거래장소(TSV)와 구조가 맞지만, 한도(대형 75종목은 원주 거래량의 0.25%, 그 외 250종목은 2.5%)가 크기를 막는다.',
-    '⚠ NYSE 플랫폼 승인 여부가 관측점이다. SECZ CEO는 4분기 계획, 거래량 현실화는 2027년 가능성이 크다고 말했다. 첫 TSV 공지자 명단도 본다.',
+R8:['NYSE 디지털 플랫폼(규제 승인 대기·출시일 미공개), 자체 ATS, Solana(Jump 프롭 AMM·Jupiter)가 있다. Solana 거래 화면은 9/8~9/9에 "Market unavailable"이 표시된 적이 있으나, 10/8 Securitize Stocks 출시로 이 장에서 토큰화 SECZ와 수탁형 12종목이 함께 거래된다(10/9 "Markets open"). OKXICE TSV(ICE·OKX 합작)의 출시 파트너라고 CEO가 밝혔다(회사 공식 문구는 "expected"). 9/17 혁신 면제의 AMM 거래장소(TSV)와 구조가 맞지만, 한도(대형 75종목은 원주 거래량의 0.25%, 그 외 250종목은 2.5%)가 크기를 막는다.',
+    '⚠ NYSE 플랫폼 승인 여부가 관측점이다. SECZ CEO는 4분기 계획, 거래량 현실화는 2027년 가능성이 크다고 말했다. 첫 TSV 공지자 명단도 본다. OKXICE TSV 실제 출시(30일 대기 · 빨라야 11월 초)와 공지에 Securitize 이름이 오르는지 본다.',
     '명부가 필수면 발행사 토큰의 거래장소가 커진다. 다만 혁신 면제 한도(~2031 재검토)가 남아 있어 상장주식 거래 칸은 ◐에 머문다.',
     '트윈이 24시간 거래의 기본값이 된다. 발행사 주도 거래 칸은 ○로 내려간다.'],
 R9:['칸은 많이 켜졌지만 돈이 안 된다. BUIDL(Euler 등)·HINC(Loopscale, Aave 제안)·토큰화 SECZ(Loopscale)가 담보로 가동 중이지만 담보 수수료 공시는 0이다. 반면 DTCC 국채 트윈은 7/15 실운영에서 CME 증거금으로 납입됐다.',
@@ -829,7 +837,7 @@ C6:['경쟁의 본진이다. 발행사가 직접 만드는 "진짜 주식" 토�
     '관측할 것: Computershare 첫 IST(연말), NYSE 승인 TA 명단(시기 미발표), Bullish×Equiniti 클로징(2027-01), 발행사 후원 연합의 명부 담당.',
     '명부 필수화 세계다. 발행·기술·명부·유통 칸이 ●가 되고, 거래 칸은 혁신 면제 한도 때문에 ◐에 머문다. 명부를 찍는 몇 곳의 과점이다.',
     '"원하는 소수 발행사용 선택지"로 줄어든다. 발행·기술·명부는 ◐, 유통·거래는 ○다.'],
-C7:['DTC 예탁 주식의 청구권 토큰이다(같은 CUSIP, 발행사 동의 불필요). DTCC는 7/15에 10월 출시를 예고했고, 10/7 FAQ에서는 2026년 4분기로 적었다. Nasdaq은 토큰화 주식 거래를 DTCC 토큰화 서비스 안으로 묶었고(3/18 승인), 자체 토큰은 2027 2분기 출시 예정이다. SECZ는 없다.',
+C7:['DTC 예탁 주식의 청구권 토큰이다(같은 CUSIP, 발행사 동의 불필요). DTCC는 7/15에 10월 출시를 예고했고, 10/7 FAQ에서는 2026년 4분기로 적었다. Nasdaq은 토큰화 주식 거래를 DTCC 토큰화 서비스 안으로 묶었고(3/18 승인), 자체 토큰은 2027 2분기 출시 예정이다. 10/8 SECZ도 수탁형으로 들어왔다 — Securitize Stocks 12종목. 다만 DTC 원장 토큰이 아니라 Securitize Markets 장부상 엔타이틀먼트이고, 발행사가 토큰화를 시작하며 Securitize를 지정하면 발행사 주도 토큰으로 바뀌는 전환형이다.',
     'DTCC 진영이 굳어진다. 4분기 출시 명단과 Nasdaq 토큰을 본다.',
     '전환 다리가 생기면 트윈 명부 칸에 SECZ가 ◐로 선다. "다리 건너편 명부"다.',
     '트윈이 담보·유통·24시간 거래의 기본값이 된다.'],
@@ -866,6 +874,7 @@ const EVT=[
  {d:'2026-09-28',n:'DTCC × iCapital 지분 투자 · AIP 연동',t:[0,1],keys:'R7C3,R7C5,R5C3,R5C5',good:'AIP가 토큰 펀드 지분을 처리 대상으로 받음 → 판매 배관이 SECZ 토큰의 다리가 됨',bad:'토큰 없이 운영 마찰을 풀어 토큰화 명분이 약해짐 · iCapital 토큰화 파트너가 DTCC ComposerX',sig:'AIP 통합 범위 · iCapital 토큰화 파트너 실명 · SECZ 자산서비스 매출(11월 10-Q)'},
  {d:'2026-10',n:'DTCC 토큰화 서비스 정식 출시',t:[0,1,2,3],keys:'col:C2,col:C7,R9C1,R4C5',good:'자산군이 DTC 보관 자산에 머문다 · SECZ 이름이 명단에 오른다 · 출시 자료에 "발행사 토큰과의 상호운용" 문구',bad:'사모·펀드 자산으로 확대 · 담보 적격 목록에서 토큰 MMF 제외',sig:'출시 보도자료의 참여사·자산군·체인'},
  {d:'2026-11-03',n:'SEC 이전대리인 규칙 의견 마감',t:[0,1,2,3],keys:'row:R4',good:'"배타적 통제 = 기록 상태"로 정의 → 퍼블릭 체인 명부 인정 · 등록 TA가 동일 권리 검증 주체로',bad:'"= 네트워크 통제" → 허가형 체인(ICE·은행) 유리',sig:'SECZ 의견서 제출 여부·내용(9/29 현재 SEC 공개 목록에 없음)'},
+ {d:'2026-11 초(빨라야)',n:'OKXICE TSV 출시',t:[0,1],keys:'R8C6,R8C7',good:'공지에 Securitize가 토큰화 대행사로 명시 · 토큰화 SECZ와 Securitize Stocks 거래 시작',bad:'다른 토큰화 대행사의 토큰이 같은 종목을 차지',sig:'OKXICE 공지의 대행사 이름 · 출시일'},
  {d:'2026-11',n:'SECZ 3분기 실적',t:[0,1],keys:'state:f',good:'토큰화 매출 $920만 이상',bad:'3분기 연속 전년 대비 감소',sig:'토큰화 라인 · 조정 EBITDA'},
  {d:'4Q ~ 2027-03',n:'NYSE 디지털 플랫폼 승인 · 승인 TA 명단',t:[1],keys:'R4C6,R8C6',good:'SECZ가 명단에 있음(tZERO와 공존)',bad:'SECZ 부재',sig:'ICE 발표 문구의 관사(a/the) · 명단'},
  {d:'2026 연말',n:'Computershare 첫 IST 발행',t:[1],keys:'R3C6,R4C6',good:'첫 외부 대형 상장사 고객',bad:'시한 불이행 → 시간 약속 신뢰도 전체 하락',sig:'발행사 이름 공시'},
@@ -928,6 +937,8 @@ const TT={
  coalition:'발행사 주도형 — 발행사 후원 토큰(IST) 표준',
  kb:'해당 없음 — 유통 파트너(검토 단계)',
  jump:'해당 없음 — 거래 유동성(Solana AMM)',
+ okxice:'해당 없음 — 거래장소(TSV · 허가형 AMM · 발행사 토큰과 제3자 수탁형 토큰 모두 받음)',
+ ripple:'해당 없음 — 기관 거래 창구(프라임 브로커)',
  ondo:'상품마다 다름 — 국채: 자기 토큰 상품(USDY·OUSG) · 주식: 수탁형(원주를 맡겨 두고 발행) + DTC 트윈 기반 토큰',
  circle:'발행사 주도형 — 자체 역외 토큰 MMF(USYC)',
  figure:'발행사 주도형 — 자체 체인에서 대출 자산 토큰화',
@@ -972,7 +983,7 @@ const ASSETS=[
  {a:'사모신용',ex:'ACRED(Apollo) · Hamilton Lane Senior Credit',g:'hxx',m:{iss:'C3',twin:{t:'x',why:'② DTC에 없다 — 트윈을 만들 원본 보관소가 없다.'},wrap:{t:'x',why:'① 대출 양도에 차주·대리은행 동의가 흔하고, ③ 매일 가격이 없어 헤지가 안 된다.'}}},
  {a:'하이일드 · CLO',ex:'STAC · HINC(Neuberger)',g:'ooh',m:{iss:'C4',twin:'C4b',wrap:{t:'out',why:'하이일드 ETF를 담은 역외 래퍼는 주식 래퍼 방식으로 가능하다. 이 지도에서는 따로 세지 않는다.'}}},
  {a:'사모펀드 · 벤처',ex:'KKR 헬스케어 성장 II · Hamilton Lane Secondary VI · Equity Opportunities V · ARKVX · 벤처 펀드 토큰 6종(2차 거래)',g:'xxx',m:{iss:'C5',twin:{t:'x',why:'② 조합 지분은 DTC에 없다.'},wrap:{t:'x',why:'① 운용사 동의 없이 넘길 수 없고, ③ 기준가가 분기 평가라 헤지가 안 된다. 피더·SPV도 운용사가 조합원으로 받아 줘야 한다.'}}},
- {a:'상장주식',ex:'Tokenized SECZ · CURR · FGNX',g:'ooo',m:{iss:'C6',twin:'C7',wrap:'C8'}},
+ {a:'상장주식',ex:'Tokenized SECZ · CURR · FGNX(발행사 주도) · Securitize Stocks 12종목(수탁형 · 10/8)',g:'ooo',m:{iss:'C6',twin:'C7',wrap:'C8'}},
  {a:'비상장주식',ex:'Socios 구단 지분(예정)',g:'hxx',m:{iss:'C9',twin:{t:'x',why:'② 비상장 지분은 DTC에 없다.'},wrap:'C10'}},
  {a:'기타 대체',ex:'Preservation Fund II(부동산) · Maldives 호텔 토큰(예정)',g:'---',span:'C11'}
 ];
@@ -1160,8 +1171,8 @@ function tpanel(t){const s=STAGES[S.ri],W=t>=2?WORLD[t===2?'A':'B']:null;
     h+=cellA(k,t)+cellComp(A,s.r,t);});
   h+=`</div>${legendHTML(t)}</div>`;return h;}
 function cellA(k,t){const r=k.slice(0,2),c=k.slice(2),s=stAt(r,c,t),co=allyOf(k),AO=ASSET_OF[c];
-  const sup=AO&&!AO.A.span&&ALTM.some(([m])=>{const v=AO.A.m[m];return typeof v==='string'&&['f','p'].includes(stAt(r,v,t));});   // 2028 A: SECZ가 트윈·래퍼 쪽에도 토큰을 댐
-  const nm='<span class="it sz">Securitize</span>'+co.slice(0,2).map(([id,rel])=>`<span class="it ${rel}"><i></i>${pname(id)}</span>`).join('')+(co.length>2?`<span class="it">+${co.length-2}</span>`:'')+(sup?'<span class="it"><small class="role">트윈·래퍼에도 공급(추정)</small></span>':'');   // SECZ 이름은 늘 맨 앞(서 있지 않은 칸은 흐리게)
+  const sup=AO&&!AO.A.span&&ALTM.some(([m])=>{const v=AO.A.m[m];return typeof v==='string'&&['f','p'].includes(stAt(r,v,t));});   // 2028 A: SECZ가 트윈·래퍼 쪽에도 토큰을 댐 · 2026-10-09: 지금·2027 초에도 켜짐(Securitize Stocks = SECZ가 수탁형 토큰을 직접 발행 · 사실이라 「추정」 빼고 표기)
+  const nm='<span class="it sz">Securitize</span>'+co.slice(0,2).map(([id,rel])=>`<span class="it ${rel}"><i></i>${pname(id)}</span>`).join('')+(co.length>2?`<span class="it">+${co.length-2}</span>`:'')+(sup?`<span class="it"><small class="role">${t>=2?'트윈·래퍼에도 공급(추정)':'수탁형도 직접 발행'}</small></span>`:'');   // SECZ 이름은 늘 맨 앞(서 있지 않은 칸은 흐리게)
   const tip=esc(plain([SNAME[s],co.length?`협업 ${co.filter(x=>x[1]==='co').length}곳${co.some(x=>x[1]==='mx')?` · 복합 ${co.filter(x=>x[1]==='mx').length}곳`:''}`:'',t===1&&P27[k]?`${P27[k][0]} ${P27[k][1]}`:''].filter(Boolean).join(' · ')));
   return `<button class="cell s-${s}${t>=2&&s!==st0(r,c)?' chg3':''}" data-k="${k}" title="${tip}"><span class="gw">${s==='n'?'<i class="g0"></i>':glyph(s,30)}${chgHTML(k,t)}${pinHTML(k,t)}</span><span class="mid"><div class="nms">${nm}</div></span></button>`;}
 function cellComp(A,r,t){const k=r+(A.span||A.m.iss),cm=compOf(r,A),isHot=HOT.includes(k);
@@ -1187,7 +1198,7 @@ function cellC(A,r,t){const why=[];
 function legendHTML(t){
   const g=['f','p','l','q'].map(x=>`<span>${glyph(x,18)}${SNAME[x]}</span>`).join('');
   const tm=t===1?`<span>${WARN} 압력 · ✨ 기회</span>`:t>=2?'<span>▲▼ 지금 대비 · ◤ 바뀐 칸</span>':'';
-  const tag=t===2?'<span>「트윈·래퍼에도 공급」 SECZ가 제3자 토큰 쪽에도 토큰을 댄다(추정)</span>':t===3?'<span>「트윈 표준」 이 상품에서 트윈이 기본값이 된다(추정)</span>':'';
+  const tag=t===2?'<span>「트윈·래퍼에도 공급」 SECZ가 제3자 토큰 쪽에도 토큰을 댄다(추정)</span>':t<2?'<span>「수탁형도 직접 발행」 SECZ가 발행사 동의 없는 수탁형 토큰도 직접 만든다(10/8 Securitize Stocks)</span>':t===3?'<span>「트윈 표준」 이 상품에서 트윈이 기본값이 된다(추정)</span>':'';
   return `<div class="lgrid"><div>${tm}</div><div>${g}</div><div><span>기업명 색 <b style="color:var(--co);font-weight:500">협업</b> <b style="color:var(--mx);font-weight:500">복합</b> <b style="color:var(--cp);font-weight:500">경쟁</b> · 토큰 유형은 플레이어 카드에</span>${tag}</div></div>`;}
 function bindCells(){$$('#track .cell[data-k],#track .aln[data-k]').forEach(b=>b.onclick=e=>{e.stopPropagation();openCell(b.dataset.k);});}
 function setTime(t,instant){S.t=Math.max(0,Math.min(3,t));
@@ -1402,6 +1413,7 @@ $('#gLegend').innerHTML=[['f','가동 + 매출 — SECZ가 돈을 버는 칸'],[
  `<div class="row"><span style="display:inline-block;width:26px"></span>빈칸 = SECZ가 서 있지 않은 칸</div><div class="row">${sigHTML(3)} 경쟁 강도 = 그 칸의 경쟁·복합 상대 수(4곳 이상 만칸)</div><div class="row"><i class="dot co"></i>협업 <i class="dot cp"></i>경쟁 <i class="dot mx"></i>복합</div><div class="row"><span style="border:1px solid var(--warn);width:22px;height:14px;display:inline-block"></span> 가장 붐비는 칸</div><div class="row">${WARN} 압력 · ✨ 기회(2027 초) · ▲▼ 지금 대비(2028)</div>`;
 
 $('#gLegend').innerHTML+=`<div class="row" style="margin-top:10px;display:block;line-height:1.6"><b>표의 두 열</b> — SECZ + 협업사 · 경쟁사. 경쟁사 열에는 같은 상품의 수요를 두고 겨루는 회사를 방식(발행사 주도형·수탁형·합성형)과 관계없이 모았다. 토큰화 펀드를 실어 나르는 판매망처럼 발행사가 아닌 회사는 이름 옆에 역할을 붙였다.</div>
+ <div class="row"><span style="font-size:12px;color:var(--muted);margin-right:6px">수탁형도 직접 발행</span>지금 — SECZ가 발행사 동의 없는 수탁형 토큰도 직접 만든다(10/8 Securitize Stocks)</div>
  <div class="row"><span style="font-size:12px;color:var(--muted);margin-right:6px">트윈·래퍼에도 공급(추정)</span>2028 A — SECZ가 제3자 토큰 쪽에도 토큰을 공급한다</div>
  <div class="row"><span style="font-size:12px;color:var(--muted);margin-right:6px">트윈 표준(추정)</span>2028 B — 이 상품에서 트윈이 기본값이 된다</div>`;
 buildTsc($('#tScroll'),i=>setTime(i)); buildTsc($('#aScroll'),i=>{S.at=i;renderAll();});
